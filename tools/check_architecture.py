@@ -57,7 +57,7 @@ def main():
         angles = [initial]
         models = {'overview': 'opera', 'workflow': 'pisa', 'benchmark': 'colosseum',
                   'benchmark-results': 'colosseum', 'plugin': 'acropolis',
-                  'plugin-method': 'acropolis', 'world': 'skyscraper', 'citation': 'westminster'}
+                  'plugin-method': 'acropolis', 'world': 'skyscraper', 'explorer': 'taj', 'citation': 'westminster'}
         for chapter_index, (section, model) in enumerate(models.items(), start=1):
             if section in ('benchmark-results', 'plugin-method'):
                 page.locator('#'+section).evaluate('e=>e.scrollIntoView()')
@@ -82,8 +82,8 @@ def main():
                   f'{section}: landmark is visible in the rendered image')
             angles.append(angle)
             page.screenshot(path=str(args.output/f'{section}.png'))
-        check(abs(angles[-1] - initial - 3.2 * 3.14159265) < .003,
-              'Full document scroll corresponds to 576 degrees of rotation')
+        check(abs(angles[-1] - initial - 3.6 * 3.14159265) < .003,
+              'Full document scroll corresponds to 648 degrees of rotation')
         page.wait_for_timeout(600)
         draws = page.evaluate('architectureDrawCalls')
         page.wait_for_timeout(350)
@@ -184,6 +184,12 @@ def main():
         fallback_page.locator('#overview').evaluate('e=>e.scrollIntoView()')
         fallback_page.wait_for_function("document.querySelector('.architecture-poster').src.endsWith('architecture-opera.webp')")
         check(True, 'Static fallback also changes landmarks as the reader scrolls')
+        fallback_page.locator('#explorer').evaluate('e=>e.scrollIntoView()')
+        fallback_page.wait_for_function("""() => {
+          const image=document.querySelector('.architecture-poster');
+          return image.src.endsWith('architecture-taj.webp') && image.complete && image.naturalWidth>0;
+        }""")
+        check(True, 'Explorer has a valid Taj Mahal fallback without WebGL')
         fallback_page.locator('#paper-cover').evaluate('e=>e.scrollIntoView()')
         fallback_page.locator('.resource-links [href="#citation"]').click()
         fallback_page.wait_for_function("document.querySelector('.architecture-poster').src.endsWith('architecture-westminster.webp')")

@@ -391,27 +391,13 @@ $$("[data-appearance]").forEach(button => button.addEventListener("click", () =>
   renderAppearance();
 }));
 
-const menu = $(".menu-toggle"), links = $("#nav-links");
-function closeMenu() {
-  menu.setAttribute("aria-expanded", "false");
-  menu.setAttribute("aria-label", "Open navigation");
-  links.classList.remove("is-open");
-}
-menu.addEventListener("click", () => {
-  const open = menu.getAttribute("aria-expanded") !== "true";
-  menu.setAttribute("aria-expanded", String(open));
-  menu.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
-  links.classList.toggle("is-open", open);
-});
+const lightbox = $("#image-dialog");
 document.addEventListener("keydown", event => {
-  if (event.key === "Escape" && menu.getAttribute("aria-expanded") === "true") {
-    closeMenu();
-    menu.focus();
+  if (event.key === "Escape" && !lightbox.open && window.parent !== window) {
+    event.preventDefault();
+    window.parent.postMessage({ type: "lego-explorer-close" }, location.origin);
   }
 });
-links.addEventListener("click", event => { if (event.target.closest("a")) closeMenu(); });
-
-const lightbox = $("#image-dialog");
 $$(".image-zoom").forEach(button => button.addEventListener("click", () => {
   const image = button.querySelector("img");
   if (!image.naturalWidth) return;
@@ -437,5 +423,14 @@ function readHash() {
   if (state.tab === "metrics") state.detail = tail === "appearance" ? "appearance" : "geometry";
   render();
 }
-window.addEventListener("hashchange", readHash);
+window.addEventListener("message", event => {
+  if (event.source !== window.parent || event.origin !== location.origin ||
+      event.data?.type !== "lego-explorer-open" || !["examples", "metrics"].includes(event.data.view)) return;
+  state.tab = event.data.view;
+  render();
+  window.scrollTo({ top: 0, behavior: "instant" });
+});
+window.addEventListener("hashchange", () => {
+  if (/^#(examples|metrics)(\/|$)/.test(location.hash)) readHash();
+});
 readHash();

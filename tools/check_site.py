@@ -8,8 +8,8 @@ from urllib.parse import urljoin, urlparse
 from playwright.sync_api import sync_playwright
 
 SITE = Path(__file__).resolve().parents[1]
-SCREENS = ['paper-cover', 'overview', 'workflow', 'benchmark', 'benchmark-results', 'plugin', 'plugin-method', 'world', 'citation']
-NAV_SECTIONS = ['overview', 'workflow', 'benchmark', 'plugin', 'world', 'citation']
+SCREENS = ['paper-cover', 'overview', 'workflow', 'benchmark', 'benchmark-results', 'plugin', 'plugin-method', 'world', 'explorer', 'citation']
+NAV_SECTIONS = ['overview', 'workflow', 'benchmark', 'plugin', 'world', 'explorer', 'citation']
 PARENT_SECTIONS = {'benchmark-results': 'benchmark', 'plugin-method': 'plugin'}
 VIEWPORTS = [(1440, 900), (1440, 1100), (1280, 800), (1280, 720),
              (1024, 768), (1920, 1080), (390, 844), (320, 740), (375, 667)]
@@ -56,7 +56,7 @@ def main():
         check(page.locator('main > .screen').evaluate_all('els=>els.map(e=>e.id)') == SCREENS,
               'One document, with benchmark and plugin each split across two consecutive screens')
         check(page.locator('h1').count() == 1 and page.locator('main h2').count() == len(SCREENS) - 1,
-              'One paper title and eight screen headings')
+              'One paper title and nine screen headings')
         check(page.locator('[data-section-link]').evaluate_all('els=>els.map(e=>e.hash)')
               == ['#' + s for s in NAV_SECTIONS], 'Navigation uses one in-page anchor per chapter')
         check('Explore results' not in page.locator('body').inner_text(), 'No Explore results action')
@@ -106,7 +106,7 @@ def main():
                 if screen['id'] != 'paper-cover':
                     check(screen['words'] < (160 if screen['id'].startswith('benchmark') else 100), f"{width}×{height}: {screen['id']} has concise content")
             check(abs(layout['total'] - (layout['nav'] + sum(s['height'] for s in layout['sections']))) < 1,
-                  f'{width}×{height}: nine sections including citation, with no extra footer')
+                  f'{width}×{height}: ten sections including citation, with no extra footer')
             hero = page.locator('.hero-content').bounding_box()
             check(abs(hero['y'] + hero['height']/2 - (height + layout['nav'])/2) < 1,
                   f'{width}×{height}: cover vertically centered')

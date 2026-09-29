@@ -1,24 +1,23 @@
-.explorer-document{scroll-snap-type:none}
+/* Compact static viewer, loaded only inside the Explorer dialog. */
+.explorer-document{scroll-snap-type:none;scroll-padding:0;--nav-height:0px}
 .explorer-document body{--body-ink:#4b4d50;--muted:#787b80;--accent:#525963}
 .explorer-document button,.explorer-document select{font-family:inherit}
 .explorer-document button{cursor:pointer}
-.nav-links>a[aria-current="page"]{color:var(--ink);text-decoration:underline;text-underline-offset:7px}
-.eyebrow{font-size:10px;letter-spacing:1.1px;text-transform:uppercase;color:var(--muted)}
-.case-rail{position:fixed;top:var(--nav-height);bottom:0;left:0;width:33.333333%;padding:40px;display:flex;align-items:center;overflow-y:auto}
-.case-rail-inner{width:100%;max-width:350px;margin:auto}
-.case-rail .eyebrow{margin-bottom:22px}
-.case-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px}
+.explorer-main{width:100%;margin:0;padding:18px 26px 24px;min-height:0;max-width:none}
+.case-rail{padding:0;margin:0 0 20px}
+.case-list{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;padding:5px;margin:-5px}
 .case-button{text-align:left;padding:0;min-width:0;opacity:.65;transition:opacity .2s}
 .case-button:hover,.case-button[aria-pressed="true"]{opacity:1}
 .case-button img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:2px;filter:saturate(.45);transition:filter .2s}
 .case-button[aria-pressed="true"] img{outline:1px solid var(--ink);outline-offset:4px;filter:none}
-.case-button .case-name{display:block;font-size:10px;line-height:1.5;margin-top:10px}
+.case-button .case-name{display:block;font-size:10px;line-height:1.5;margin-top:9px}
 .case-button .case-index{font-size:9px;color:var(--muted);margin-right:5px;font-variant-numeric:tabular-nums}
-.rail-note{font-size:10px;line-height:1.7;color:var(--muted);margin-top:25px;max-width:270px}
-.explorer-main{padding:46px 40px 50px;min-height:calc(100svh - var(--nav-height));max-width:1100px}
-.explorer-heading h1{font-size:38px;text-wrap:initial;margin:10px 0 13px}
-.explorer-heading>p:last-child{font-size:14px}
-.explorer-tabs{display:flex;gap:28px;border-bottom:1px solid var(--line);margin:30px 0 26px}
+.case-list[data-tab="metrics"]{display:flex;gap:22px}
+.case-list[data-tab="metrics"] .case-button{display:flex;align-items:center;gap:10px;flex:0 1 220px}
+.case-list[data-tab="metrics"] .case-button img{width:64px;flex-shrink:0}
+.case-list[data-tab="metrics"] .case-name{margin:0}
+.rail-note{display:none}
+.explorer-tabs{display:flex;gap:28px;border-bottom:1px solid var(--line);margin:0 0 20px}
 .explorer-tabs button{font-size:12px;line-height:1.5;padding:0 0 14px;color:var(--muted);border-bottom:1px solid transparent;margin-bottom:-1px}
 .explorer-tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
 .explorer-tabs span{font-size:9px;margin-left:6px;color:var(--muted)}
@@ -61,7 +60,7 @@
 .view-actions>button:not(.text-link){border:1px solid var(--line);border-radius:3px;width:27px;height:27px;font-size:15px;line-height:1}
 .view-actions .text-link{margin-left:3px}
 .point-stage{position:relative;background:linear-gradient(180deg,#f7f8f9,#eef0f2);border:1px solid #e7e9eb;overflow:hidden;border-radius:3px}
-#point-viewer{display:block;width:100%;height:310px;touch-action:pan-y;cursor:grab}
+#point-viewer{display:block;width:100%;height:260px;touch-action:pan-y;cursor:grab}
 #point-viewer:active{cursor:grabbing}
 .point-stage-label{position:absolute;top:12px;left:14px;font-size:9px;color:#858b92;pointer-events:none}
 .point-controls{display:flex;gap:18px;flex-wrap:wrap;margin-top:12px}
@@ -87,30 +86,21 @@
 .explorer-lightbox figcaption{font-size:12px;margin-top:12px;text-align:center}
 .lightbox-close{position:absolute;right:12px;top:6px;font-size:26px;width:34px;height:34px;line-height:1}
 noscript p{font-size:13px;margin-top:20px}noscript a{display:inline;text-decoration:underline}
-@media(min-width:901px) and (max-width:1200px){
-  .case-rail{padding:30px}.case-list{gap:18px 12px}
-  .explorer-main{padding-inline:30px}
+@media(max-width:760px){
+  .case-list{display:flex;gap:14px;overflow-x:auto;padding:5px 5px 10px;scrollbar-width:thin}
+  .case-button{flex:0 0 112px}.case-button .case-name{font-size:10px}
+  .case-list[data-tab="metrics"]{gap:16px;overflow:visible}
+  .case-list[data-tab="metrics"] .case-button{flex:1;min-width:0}
   .case-heading{align-items:start;flex-direction:column;gap:5px}
-  .score-strip dt span{display:none}.score-strip dd{font-size:23px}
-  .example-footer{align-items:start;flex-direction:column;gap:10px}
-}
-@media(max-width:900px){
-  .case-rail{position:static;width:100%;padding:24px 32px 0;display:block;overflow:visible}
-  .case-rail-inner{max-width:760px}.case-rail .eyebrow{margin-bottom:14px}
-  .case-list{display:flex;gap:14px;overflow-x:auto;padding:5px 5px 10px;margin:-5px -5px 0;scrollbar-width:thin}
-  .case-button{flex:0 0 120px}.case-button .case-name{font-size:10px}
-  .rail-note{margin-top:5px;max-width:none;font-size:10px}
-  .explorer-main{max-width:824px;margin:auto;padding:25px 32px 40px}
-  .explorer-heading .eyebrow{display:none}
-  .explorer-heading h1{font-size:32px;margin-top:0}
-  #point-viewer{height:330px}
 }
 @media(max-width:640px){
-  .case-rail{padding-inline:20px}.case-button{flex-basis:103px}
-  .explorer-main{padding-inline:20px}
-  .explorer-heading>p:last-child{font-size:12px}
-  .explorer-tabs{margin:24px 0 22px;gap:24px}
-  .case-heading{flex-direction:column;align-items:start;gap:7px;margin-bottom:18px}
+  .explorer-main{padding:16px 16px 24px}
+  .case-rail{margin-bottom:18px}
+  .case-button{flex-basis:100px}
+  .case-list[data-tab="metrics"] .case-button{gap:8px}
+  .case-list[data-tab="metrics"] .case-button img{width:48px}
+  .explorer-tabs{margin-bottom:18px;gap:24px}
+  .case-heading{margin-bottom:18px}
   .case-heading h2{font-size:21px}.case-heading>p{font-size:9px}
   .model-picker{gap:5px;margin-bottom:18px}.model-picker button{font-size:9px;padding:9px 4px}
   .example-pair{gap:9px}.example-pair figcaption{font-size:9px}
@@ -121,7 +111,7 @@ noscript p{font-size:13px;margin-top:20px}noscript a{display:inline;text-decorat
   .score-strip dt{font-size:8px;letter-spacing:-.2px}.score-strip dt span{display:none}
   .score-strip dd{font-size:21px}.score-strip dd span{font-size:11px}
   .geometry-toolbar>label{flex:1;gap:5px}.geometry-toolbar select{width:100%;font-size:10px;padding-inline:5px}
-  #point-viewer{height:285px}
+  #point-viewer{height:250px}
   .point-controls{gap:12px}.point-controls label{font-size:9px}
   .appearance-picker button{font-size:9px;padding:8px 7px}
   .metric-footer{flex-direction:column;gap:8px}

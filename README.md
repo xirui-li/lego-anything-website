@@ -5,7 +5,7 @@ Project website for **LEGO-Anything: Coding Agents for 3D Scene Reconstruction**
 Website: <https://xirui-li.github.io/lego-anything-website/>
 
 A static paper website built with HTML, CSS, JavaScript, and Three.js. It includes
-Overview, the agent workflow, LEGO-Bench, LEGO-Plugin, LEGO-World, and Citation.
+Overview, the agent workflow, LEGO-Bench, LEGO-Plugin, LEGO-World, Explorer, and Citation.
 
 ## Website
 
@@ -20,12 +20,15 @@ reading column. Motion follows scrolling and respects reduced-motion preferences
 - Paper figures open at full size. The trajectory figure is a lossless PNG
   exported directly from the manuscript PDF.
 - Citation includes the paper’s BibTeX and a copy button.
-- Explorer presents all six appendix examples, each with six model outputs, and
-  a recorded Metric viewer for Havana rum shop street and Office open-plan.
+- Explorer occupies one paper screen with a gray Taj Mahal in the left third.
+  Two short descriptions link to Examples and Metric viewer in a dialog. The
+  viewer is loaded only when opened; closing it restores the reading position.
+- The dialog includes all six appendix examples, each with six model outputs,
+  and recorded metrics for Havana rum shop street and Office open-plan.
 - Fonts, Three.js, figures, and the paper PDF are included in the repository.
 
 The decorative landmarks are the Eiffel Tower, Sydney Opera House, Leaning Tower
-of Pisa, Colosseum ruins, Acropolis ruins, an art-deco skyscraper, and Big Ben
+of Pisa, Colosseum ruins, Acropolis ruins, an art-deco skyscraper, Taj Mahal, and Big Ben
 with the Houses of Parliament. These are procedural illustrations, separate from
 the paper’s reconstruction results. Static renderings are used when WebGL is
 unavailable; mobile does not download the 3D renderer.
@@ -39,11 +42,12 @@ unavailable; mobile does not download the 3D renderer.
 | `app.js` | Navigation, findings, examples, and citation |
 | `architecture.js` | Scroll-driven 3D rendering |
 | `architecture-model.js` | Procedural landmark geometry |
-| `explorer.html`, `explorer.css`, `explorer.js` | Appendix examples and recorded metrics |
+| `explorer-viewer.html`, `explorer.css`, `explorer.js` | Static dialog content for appendix examples and recorded metrics |
 | `assets/` | Paper, images, fonts, data, and renderer |
 | `tools/` | Asset export and browser verification |
 
-The four legacy HTML entry points redirect to the corresponding sections.
+The legacy HTML entry points redirect to the corresponding sections.
+`explorer.html` redirects to the Explorer chapter at `index.html#explorer`.
 
 ## Updating paper assets
 
@@ -78,9 +82,14 @@ assets, citation copying, WebGL rendering, animation, and static fallbacks.
 
 ## Explorer data
 
-Explorer is fully static. Browsers load bundled images and JSON; rotating sampled
+Explorer is fully static. Its dialog embeds `explorer-viewer.html` from the same
+site. Browsers load bundled images and JSON; rotating sampled
 point clouds only changes the display. There is no evaluation API, backend,
 model call, upload, or live metric computation.
+
+The viewer retains image enlargement, case/model switching, point-cloud controls,
+and recorded-data downloads. Escape closes an enlarged image first, then Explorer.
+The original paper page and its decorative landmark remain behind the dialog.
 
 Examples reuse the manuscript's six appendix cases and six model columns.
 Both metric cases use GPT-6-astra, run 01. Their evaluator rerenders match the

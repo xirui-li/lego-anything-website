@@ -218,6 +218,35 @@ function initCitation() {
   });
 }
 
+function initExplorer() {
+  const dialog = $("#explorer-dialog");
+  const frame = $("#explorer-frame");
+  const loading = $("#explorer-loading");
+  function showRequestedView() {
+    frame.contentWindow.postMessage({
+      type: "lego-explorer-open", view: frame.dataset.requestedView,
+    }, location.origin);
+  }
+  frame.addEventListener("load", () => {
+    if (!frame.hasAttribute("src")) return;
+    loading.hidden = true;
+    frame.dataset.ready = "true";
+    showRequestedView();
+  });
+  $$("[data-explorer-view]").forEach(button => button.addEventListener("click", () => {
+    const view = button.dataset.explorerView;
+    frame.dataset.requestedView = view;
+    if (!frame.hasAttribute("src")) {
+      loading.hidden = false;
+      frame.src = `explorer-viewer.html#${view}/ex01/${view === "metrics" ? "geometry" : "gpt6_astra"}`;
+    } else if (frame.dataset.ready === "true") showRequestedView();
+  }));
+  window.addEventListener("message", event => {
+    if (event.origin !== location.origin || event.source !== frame.contentWindow || !dialog.open) return;
+    if (event.data?.type === "lego-explorer-close") dialog.close();
+  });
+}
+
 function initDialogs() {
   function openDialog(dialog) {
     dialog.showModal();
@@ -316,5 +345,6 @@ initBenchmark();
 initFindings();
 initPlugin();
 initCitation();
+initExplorer();
 initDialogs();
 initSectionNavigation();

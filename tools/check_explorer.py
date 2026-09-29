@@ -27,7 +27,7 @@ def main():
     args = parser.parse_args()
     args.output.mkdir(parents=True, exist_ok=True)
     base = args.url.rstrip("/") + "/"
-    url = urljoin(base, "explorer.html")
+    url = urljoin(base, "explorer-viewer.html")
     report = {"checks": [], "errors": [], "unexpected_requests": []}
 
     def check(condition, label):
@@ -55,7 +55,7 @@ def main():
         page.evaluate("document.fonts.ready")
         check(page.locator("[data-case]").count() == 6, "All six appendix cases")
         check(page.locator("[data-model]").count() == 6, "All six model columns")
-        check(page.locator("nav [aria-current=page]").inner_text() == "Explorer", "Explorer navigation state")
+        check(page.locator(".site-header").count() == 0, "Viewer has no duplicate site navigation")
         for case in CASES:
             page.locator(f"[data-case={case}]").click()
             for model in MODELS:
@@ -189,10 +189,6 @@ def main():
                   f"{width}px: no horizontal page overflow")
             check(responsive.locator("#score-appearance").inner_text() == "54.4%",
                   f"{width}px: deep link restores correct case and panel")
-            if width <= 1000:
-                responsive.locator(".menu-toggle").click()
-                check(responsive.locator("#nav-links").is_visible(), f"{width}px: mobile navigation")
-                responsive.keyboard.press("Escape")
             responsive.screenshot(path=str(args.output / f"appearance-{width}.png"), full_page=True)
             responsive.locator("#geometry-tab").click()
             responsive.locator("#zoom-in").click()
@@ -203,6 +199,66 @@ def main():
                   f"{width}px: geometry controls fit")
             responsive.close()
 
+        # Main-site entries open the same static viewer in a native dialog.
+        for width, height in [(1440, 900), (390, 844), (320, 740)]:
+            landing = context.new_page()
+            landing.on("pageerror", lambda error: report["errors"].append(str(error)))
+            landing.set_viewport_size({"width": width, "height": height})
+            landing.goto(base + "#explorer", wait_until="networkidle")
+            landing.locator("#explorer").evaluate("e=>e.scrollIntoView()")
+            check(not landing.locator("#explorer-frame").get_attribute("src"),
+                  f"{width}px: viewer is not loaded before opening")
+            check(landing.locator('[href="#explorer"][data-section-link]').count() == 1,
+                  f"{width}px: Explorer is an in-page paper chapter")
+            start_scroll = landing.evaluate("scrollY")
+            landing.screenshot(path=str(args.output / f"landing-{width}.png"))
+            landing.locator("[data-explorer-view=examples]").click()
+            viewer = landing.frame_locator("#explorer-frame")
+            viewer.locator("[data-case=ex06]").wait_for()
+            check(landing.locator("#explorer-dialog").evaluate("e=>e.open"),
+                  f"{width}px: Examples opens inside a dialog")
+            check(landing.url == base + "#explorer", f"{width}px: opening viewer stays on the paper page")
+            bounds = landing.locator("#explorer-dialog").bounding_box()
+            check(bounds["width"] < width and bounds["height"] < height,
+                  f"{width}px: dialog stays within the viewport")
+            viewer.locator("#example-render").click()
+            viewer.locator("#image-dialog[open]").wait_for()
+            landing.keyboard.press("Escape")
+            viewer.locator("#image-dialog[open]").wait_for(state="hidden")
+            check(landing.locator("#explorer-dialog").evaluate("e=>e.open"),
+                  f"{width}px: Escape closes image first and keeps Explorer open")
+            viewer.locator("#examples-tab").focus()
+            landing.keyboard.press("Escape")
+            landing.wait_for_function("!document.querySelector('#explorer-dialog').open")
+            check(abs(landing.evaluate("scrollY") - start_scroll) < 1,
+                  f"{width}px: closing returns to the same reading position")
+            check(landing.locator("[data-explorer-view=examples]").evaluate("e=>e===document.activeElement"),
+                  f"{width}px: closing restores keyboard focus")
+            landing.locator("[data-explorer-view=metrics]").click()
+            viewer.locator("#metric-content:visible").wait_for()
+            check(viewer.locator("#metrics-tab").get_attribute("aria-selected") == "true",
+                  f"{width}px: metric entry opens the requested view")
+            check(viewer.locator("[data-case]").count() == 2,
+                  f"{width}px: two static metric cases available inside dialog")
+            viewer.locator(".skip-link").focus()
+            viewer.locator(".skip-link").press("Enter")
+            check(viewer.locator("#metrics-tab").get_attribute("aria-selected") == "true",
+                  f"{width}px: skip link preserves the selected view")
+            check(not viewer.locator("html").evaluate("e=>e.scrollWidth>innerWidth"),
+                  f"{width}px: embedded content has no horizontal page overflow")
+            landing.screenshot(path=str(args.output / f"dialog-metrics-{width}.png"))
+            landing.locator("#explorer-dialog .dialog-close").click()
+            landing.locator("[data-explorer-view=examples]").click()
+            viewer.locator("#examples-panel:visible").wait_for()
+            check(viewer.locator("html").evaluate("()=>scrollY===0"),
+                  f"{width}px: reopening resets the viewer scroll position")
+            landing.locator("#explorer-dialog .dialog-close").click()
+            landing.close()
+
+        legacy = context.new_page()
+        legacy.goto(urljoin(base, "explorer.html"), wait_until="networkidle")
+        check(legacy.url.endswith("index.html#explorer"), "Old Explorer link returns to the integrated chapter")
+        legacy.close()
         check(not report["errors"], "No JavaScript errors")
         check(not report["unexpected_requests"], "All browser requests are static GETs within the website")
         browser.close()

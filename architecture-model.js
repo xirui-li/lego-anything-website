@@ -749,6 +749,110 @@ function createWestminster() {
   return b.finish();
 }
 
+function createTajMahal() {
+  const b = builder();
+  // A monochrome maquette: raised plinth, recessed iwans, bulbous dome,
+  // four roof pavilions, and four slender freestanding minarets.
+  const cylinder = new THREE.CylinderGeometry(1, 1, 1, 40);
+  const tapered = new THREE.CylinderGeometry(0.78, 1, 1, 32);
+  const profile = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(.7, 0, 0), new THREE.Vector3(.84, .17, 0),
+    new THREE.Vector3(.99, .46, 0), new THREE.Vector3(.95, .72, 0),
+    new THREE.Vector3(.75, 1.02, 0), new THREE.Vector3(.45, 1.28, 0),
+    new THREE.Vector3(.16, 1.48, 0), new THREE.Vector3(.02, 1.57, 0),
+  ]);
+  const dome = new THREE.LatheGeometry(profile.getPoints(32).map(p => new THREE.Vector2(p.x, p.y)), 64);
+  function drum(x, y, z, radius, height) { b.add(cylinder, [x, y, z], [radius, height, radius]); }
+  function finial(x, y, z, scale = 1) {
+    b.beam([x, y, z], [x, y + .38 * scale, z], .023 * scale);
+    for (const [height, radius] of [[.05, .06], [.16, .037], [.27, .02]]) {
+      drum(x, y + height * scale, z, radius * scale, .045 * scale);
+    }
+  }
+  function pointedPanel(width, height) {
+    const outer = new THREE.Shape();
+    outer.moveTo(-width / 2, 0); outer.lineTo(width / 2, 0);
+    outer.lineTo(width / 2, height); outer.lineTo(-width / 2, height); outer.closePath();
+    const hole = new THREE.Path();
+    const w = width * .37, spring = height * .58, top = height * .91;
+    hole.moveTo(-w, .03); hole.lineTo(-w, spring);
+    hole.bezierCurveTo(-w, height * .76, -w * .42, top - .06, 0, top);
+    hole.bezierCurveTo(w * .42, top - .06, w, height * .76, w, spring);
+    hole.lineTo(w, .03); hole.closePath();
+    outer.holes.push(hole);
+    const geometry = new THREE.ExtrudeGeometry(outer, { depth: .11, bevelEnabled: false, curveSegments: 16 });
+    return geometry;
+  }
+  function facePoint(u, y, out, angle) {
+    return [u * Math.cos(angle) + out * Math.sin(angle), y,
+      out * Math.cos(angle) - u * Math.sin(angle)];
+  }
+  function faceBox(u, y, out, width, height, depth, angle) {
+    b.box(...facePoint(u, y, out, angle), width, height, depth, angle);
+  }
+  b.box(0, -.10, 0, 6.65, .20, 6.65);
+  b.box(0, .09, 0, 6.38, .18, 6.38);
+  b.box(0, .22, 0, 6.45, .08, 6.45);
+  // The central volume has chamfered corners; projecting frames create deep shadows.
+  const footprint = new THREE.Shape();
+  [[-1.05, -1.5], [1.05, -1.5], [1.5, -1.05], [1.5, 1.05],
+    [1.05, 1.5], [-1.05, 1.5], [-1.5, 1.05], [-1.5, -1.05]].forEach(([x, z], i) => {
+    if (i) footprint.lineTo(x, z); else footprint.moveTo(x, z);
+  });
+  footprint.closePath();
+  const body = new THREE.ExtrudeGeometry(footprint, { depth: 1.96, bevelEnabled: false });
+  body.rotateX(-Math.PI / 2);
+  b.add(body, [0, .26, 0]);
+  b.box(0, .3, 0, 3.17, .09, 3.17);
+  b.box(0, 2.22, 0, 3.16, .1, 3.16);
+  const mainPortal = pointedPanel(1.35, 1.97), smallPortal = pointedPanel(.45, .76);
+  for (const angle of [0, Math.PI / 2, Math.PI, -Math.PI / 2]) {
+    b.add(mainPortal, facePoint(0, .31, 1.72, angle), [1, 1, 1], angle);
+    for (const side of [-1, 1]) {
+      faceBox(side * .64, 1.3, 1.64, .08, 1.98, .28, angle);
+      faceBox(side * .7, 1.35, 1.86, .028, 2.08, .035, angle);
+      for (const bottom of [.41, 1.31]) {
+        b.add(smallPortal, facePoint(side * 1.05, bottom, 1.57, angle), [1, 1, 1], angle);
+      }
+    }
+    faceBox(0, 2.33, 1.78, 1.5, .10, .24, angle);
+    for (let i = 0; i < 14; i++) faceBox(-1.42 + i * .218, 2.37, 1.53, .075, .19, .075, angle);
+  }
+  drum(0, 2.48, 0, .77, .46);
+  drum(0, 2.7, 0, .82, .08);
+  b.add(dome, [0, 2.72, 0]);
+  finial(0, 4.28, 0);
+  function pavilion(x, y, z, radius) {
+    drum(x, y, z, radius * 1.12, .07);
+    for (let i = 0; i < 8; i++) {
+      const angle = i * Math.PI / 4;
+      const px = x + radius * .78 * Math.cos(angle), pz = z + radius * .78 * Math.sin(angle);
+      b.beam([px, y, pz], [px, y + radius * 1.4, pz], radius * .10);
+    }
+    drum(x, y + radius * 1.42, z, radius * 1.07, .06);
+    b.add(dome, [x, y + radius * 1.45, z], [radius, radius * .82, radius]);
+    finial(x, y + radius * 2.74, z, radius);
+  }
+  for (const x of [-1.05, 1.05]) for (const z of [-1.05, 1.05]) pavilion(x, 2.35, z, .37);
+  for (const x of [-2.75, 2.75]) for (const z of [-2.75, 2.75]) {
+    drum(x, .39, z, .27, .25);
+    b.add(tapered, [x, 1.94, z], [.19, 3.0, .19]);
+    for (const y of [1.43, 2.43, 3.43]) {
+      drum(x, y, z, .245, .07);
+      drum(x, y + .055, z, .22, .04);
+      for (let i = 0; i < 16; i++) {
+        const a = i * Math.PI / 8;
+        b.beam([x + .213 * Math.cos(a), y + .05, z + .213 * Math.sin(a)],
+          [x + .213 * Math.cos(a), y + .17, z + .213 * Math.sin(a)], .014);
+      }
+      drum(x, y + .17, z, .233, .025);
+    }
+    pavilion(x, 3.63, z, .225);
+  }
+  for (let i = 0; i < 5; i++) b.box(0, .025 + i * .045, 3.34 - i * .13, 1.42, .05, .21);
+  return b.finish();
+}
+
 export function createArchitectures() {
   const raw = {
     opera: createSydneyOperaHouse(),
@@ -758,6 +862,7 @@ export function createArchitectures() {
     acropolis: createAcropolis(),
     skyscraper: createSkyscraper(),
     westminster: createWestminster(),
+    taj: createTajMahal(),
   };
   return Object.fromEntries(Object.entries(raw).map(([name, object]) => {
     const bounds = new THREE.Box3().setFromObject(object);

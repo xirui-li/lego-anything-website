@@ -11,7 +11,8 @@ const chapters = [
   { section: 'plugin', model: 'acropolis', rotationOffset: -Math.PI * 0.8 },
   { section: 'plugin-method', model: 'acropolis', poster: 'acropolis-method', rotationOffset: -Math.PI * 0.8 },
   { section: 'world', model: 'skyscraper', rotationOffset: -Math.PI * 1.2 },
-  { section: 'citation', model: 'westminster', rotationOffset: -Math.PI * 3.2 },
+  { section: 'explorer', model: 'taj', rotationOffset: -Math.PI * 3.2 },
+  { section: 'citation', model: 'westminster', rotationOffset: -Math.PI * 3.6 },
 ];
 let controller;
 let loading = false;

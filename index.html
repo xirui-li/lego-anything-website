@@ -33,8 +33,8 @@
         <a href="#benchmark" data-section-link>LEGO-Bench</a>
         <a href="#plugin" data-section-link>LEGO-Plugin</a>
         <a href="#world" data-section-link>LEGO-World</a>
+        <a href="#explorer" data-section-link>Explorer</a>
         <a href="#citation" data-section-link>Citation</a>
-        <a href="explorer.html">Explorer</a>
         <a class="nav-paper" href="assets/paper.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
       </div>
     </nav>
@@ -225,6 +225,26 @@
         <div class="section-actions"><a class="button" href="assets/paper.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a><a class="button button-text" href="#paper-cover">Back to top ↑</a></div>
       </div>
     </section>
+    <section class="screen paper-section" id="explorer" aria-labelledby="explorer-title">
+      <div class="screen-content">
+        <div class="section-header">
+          <h2 id="explorer-title">Explorer</h2>
+          <p>Explore the reconstructions and the measurements behind them.</p>
+        </div>
+        <div class="explorer-entries">
+          <article>
+            <h3>Examples</h3>
+            <p>Six scenes from the appendix. Compare each reference image with reconstructions from six coding agents.</p>
+            <button class="explorer-entry-link" type="button" data-open-dialog="explorer-dialog" data-explorer-view="examples">View examples <span aria-hidden="true">↗</span></button>
+          </article>
+          <article>
+            <h3>Metric viewer</h3>
+            <p>Look inside two recorded evaluations. Inspect visible-surface geometry, object scores, and rendered appearance.</p>
+            <button class="explorer-entry-link" type="button" data-open-dialog="explorer-dialog" data-explorer-view="metrics">Open metric viewer <span aria-hidden="true">↗</span></button>
+          </article>
+        </div>
+      </div>
+    </section>
     <section class="screen paper-section" id="citation" aria-labelledby="citation-title">
       <div class="screen-content">
     <div class="citation-heading"><div><h2 id="citation-title">Citation</h2></div><button id="copy-citation" class="button" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h4"/></svg><span>Copy BibTeX</span></button></div>
@@ -242,6 +262,15 @@
       </div>
     </section>
   </main>
+
+  <dialog id="explorer-dialog" class="content-dialog explorer-dialog" aria-labelledby="explorer-dialog-title">
+    <div class="explorer-dialog-heading">
+      <h2 id="explorer-dialog-title">Explorer</h2>
+      <button class="dialog-close" type="button" aria-label="Close Explorer">×</button>
+    </div>
+    <p id="explorer-loading" class="figure-note" role="status">Loading explorer…</p>
+    <iframe id="explorer-frame" title="LEGO-Bench examples and metric viewer"></iframe>
+  </dialog>
 
   <dialog id="plugin-examples-dialog" class="content-dialog plugin-dialog" aria-labelledby="plugin-examples-title">
     <button class="dialog-close" type="button" aria-label="Close plugin examples">×</button>

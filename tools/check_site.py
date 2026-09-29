@@ -60,7 +60,7 @@ def main():
         check(page.locator('[data-section-link]').evaluate_all('els=>els.map(e=>e.hash)')
               == ['#' + s for s in NAV_SECTIONS], 'Navigation uses one in-page anchor per chapter')
         check('Explore results' not in page.locator('body').inner_text(), 'No Explore results action')
-        check(page.locator('.resource-links > *').all_text_contents() == ['Paper ↗', 'Code ↗', 'BibTeX ↓'],
+        check(page.locator('.resource-links > *').all_text_contents() == ['Paper ↗', 'Code · Coming soon', 'BibTeX ↓'],
               'Cover has only the requested three resource actions')
         check(page.locator('.paper-header img').count() == 0, 'No figure on the cover')
         check(page.locator('body').evaluate('e=>getComputedStyle(e).backgroundColor')

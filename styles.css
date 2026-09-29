@@ -45,6 +45,7 @@ sup{font-size:8px;line-height:0;position:relative;vertical-align:super;margin-le
 .resource-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin-top:24px}
 .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 16px;font-size:12px;font-weight:400;line-height:1.5;border:1px solid #c7cbc2;border-radius:5px;background:#fff;transition:border-color .15s,background .15s}
 .button:hover{border-color:#7d8477;background:#fafbf8}.button svg{height:15px;width:15px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.button:disabled{font-family:var(--sans);color:var(--muted);border-color:var(--line);background:#fafafa;cursor:default}
 .button-primary{background:var(--ink);color:#fff;border-color:var(--ink)}.button-primary:hover{background:#454950;border-color:#454950}
 .button-text{border-color:transparent;padding-inline:10px}.button-text:hover{border-color:transparent;background:transparent;color:var(--accent)}
 h2{font-family:var(--serif);font-size:32px;line-height:1.35;font-weight:400;letter-spacing:-.64px;color:var(--ink)}

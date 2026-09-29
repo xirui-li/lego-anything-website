@@ -1,0 +1,435 @@
+{
+  "paperCommit": "575fd259635d8800984abd74eb45e25f386f2679",
+  "source": "tables/table_LEGO-Bench_agent_and_harness.tex",
+  "models": [
+    {
+      "name": "GPT-6-astra",
+      "group": "Coding agents",
+      "indoor": {
+        "validity": {
+          "mean": 100.0,
+          "std": 0.0
+        },
+        "reconstruction": {
+          "mean": 52.4,
+          "std": 1.1
+        },
+        "appearance": {
+          "mean": 54.4,
+          "std": 0.7
+        },
+        "overall": {
+          "mean": 53.4,
+          "std": 0.8
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 98.0,
+          "std": 1.0
+        },
+        "reconstruction": {
+          "mean": 34.0,
+          "std": 1.5
+        },
+        "appearance": {
+          "mean": 45.5,
+          "std": 0.5
+        },
+        "overall": {
+          "mean": 39.6,
+          "std": 0.8
+        }
+      }
+    },
+    {
+      "name": "GPT-6-sol",
+      "group": "Coding agents",
+      "indoor": {
+        "validity": {
+          "mean": 99.4,
+          "std": 1.1
+        },
+        "reconstruction": {
+          "mean": 22.2,
+          "std": 2.4
+        },
+        "appearance": {
+          "mean": 42.5,
+          "std": 0.3
+        },
+        "overall": {
+          "mean": 32.3,
+          "std": 1.0
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 99.7,
+          "std": 0.6
+        },
+        "reconstruction": {
+          "mean": 19.8,
+          "std": 1.0
+        },
+        "appearance": {
+          "mean": 28.7,
+          "std": 0.5
+        },
+        "overall": {
+          "mean": 24.2,
+          "std": 0.4
+        }
+      }
+    },
+    {
+      "name": "GPT-6-luna",
+      "group": "Coding agents",
+      "indoor": {
+        "validity": {
+          "mean": 99.7,
+          "std": 0.5
+        },
+        "reconstruction": {
+          "mean": 15.8,
+          "std": 1.2
+        },
+        "appearance": {
+          "mean": 30.5,
+          "std": 0.3
+        },
+        "overall": {
+          "mean": 23.2,
+          "std": 0.7
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 99.7,
+          "std": 0.6
+        },
+        "reconstruction": {
+          "mean": 13.2,
+          "std": 0.6
+        },
+        "appearance": {
+          "mean": 21.4,
+          "std": 0.5
+        },
+        "overall": {
+          "mean": 17.3,
+          "std": 0.5
+        }
+      }
+    },
+    {
+      "name": "GPT-5.6-sol",
+      "group": "Coding agents",
+      "indoor": {
+        "validity": {
+          "mean": 97.8,
+          "std": 2.3
+        },
+        "reconstruction": {
+          "mean": 9.8,
+          "std": 2.1
+        },
+        "appearance": {
+          "mean": 19.8,
+          "std": 0.6
+        },
+        "overall": {
+          "mean": 14.8,
+          "std": 1.0
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 98.7,
+          "std": 0.6
+        },
+        "reconstruction": {
+          "mean": 12.8,
+          "std": 1.8
+        },
+        "appearance": {
+          "mean": 17.7,
+          "std": 0.4
+        },
+        "overall": {
+          "mean": 15.3,
+          "std": 0.8
+        }
+      }
+    },
+    {
+      "name": "GPT-5.6-terra",
+      "group": "Coding agents",
+      "indoor": {
+        "validity": {
+          "mean": 99.7,
+          "std": 0.5
+        },
+        "reconstruction": {
+          "mean": 9.5,
+          "std": 1.0
+        },
+        "appearance": {
+          "mean": 21.3,
+          "std": 0.5
+        },
+        "overall": {
+          "mean": 15.4,
+          "std": 0.6
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 98.0,
+          "std": 1.7
+        },
+        "reconstruction": {
+          "mean": 8.1,
+          "std": 0.7
+        },
+        "appearance": {
+          "mean": 15.0,
+          "std": 0.9
+        },
+        "overall": {
+          "mean": 11.5,
+          "std": 0.4
+        }
+      }
+    },
+    {
+      "name": "GPT-5.6-luna",
+      "group": "Coding agents",
+      "indoor": {
+        "validity": {
+          "mean": 99.1,
+          "std": 0.0
+        },
+        "reconstruction": {
+          "mean": 10.2,
+          "std": 2.1
+        },
+        "appearance": {
+          "mean": 18.0,
+          "std": 0.7
+        },
+        "overall": {
+          "mean": 14.1,
+          "std": 1.3
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 97.0,
+          "std": 1.0
+        },
+        "reconstruction": {
+          "mean": 7.8,
+          "std": 1.5
+        },
+        "appearance": {
+          "mean": 16.6,
+          "std": 0.8
+        },
+        "overall": {
+          "mean": 12.1,
+          "std": 1.0
+        }
+      }
+    },
+    {
+      "name": "VIGA",
+      "group": "Task-specific LLM systems",
+      "indoor": {
+        "validity": {
+          "mean": 100.0,
+          "std": 0.0
+        },
+        "reconstruction": {
+          "mean": 10.8,
+          "std": 1.5
+        },
+        "appearance": {
+          "mean": 20.3,
+          "std": 0.7
+        },
+        "overall": {
+          "mean": 15.6,
+          "std": 1.1
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 100.0,
+          "std": 0.0
+        },
+        "reconstruction": {
+          "mean": 8.0,
+          "std": 0.4
+        },
+        "appearance": {
+          "mean": 17.1,
+          "std": 0.0
+        },
+        "overall": {
+          "mean": 12.6,
+          "std": 0.2
+        }
+      }
+    },
+    {
+      "name": "SceneConductor",
+      "group": "Task-specific LLM systems",
+      "indoor": {
+        "validity": {
+          "mean": 12.3,
+          "std": 2.3
+        },
+        "reconstruction": {
+          "mean": 5.0,
+          "std": 2.1
+        },
+        "appearance": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "overall": {
+          "mean": 0.3,
+          "std": 0.2
+        }
+      },
+      "outdoor": null
+    },
+    {
+      "name": "3D-RE-GEN",
+      "group": "Scene construction baselines",
+      "indoor": {
+        "validity": {
+          "mean": 100.0,
+          "std": 0.0
+        },
+        "reconstruction": {
+          "mean": 1.2,
+          "std": 0.1
+        },
+        "appearance": {
+          "mean": 11.3,
+          "std": 0.2
+        },
+        "overall": {
+          "mean": 6.3,
+          "std": 0.1
+        }
+      },
+      "outdoor": null
+    },
+    {
+      "name": "Gen3DSR",
+      "group": "Scene construction baselines",
+      "indoor": {
+        "validity": {
+          "mean": 92.0,
+          "std": 1.1
+        },
+        "reconstruction": {
+          "mean": 65.4,
+          "std": 0.7
+        },
+        "appearance": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "overall": {
+          "mean": 30.1,
+          "std": 0.4
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 80.0,
+          "std": 1.0
+        },
+        "reconstruction": {
+          "mean": 35.0,
+          "std": 0.5
+        },
+        "appearance": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "overall": {
+          "mean": 14.0,
+          "std": 0.1
+        }
+      }
+    },
+    {
+      "name": "REST3D",
+      "group": "Scene construction baselines",
+      "indoor": {
+        "validity": {
+          "mean": 77.5,
+          "std": 13.0
+        },
+        "reconstruction": {
+          "mean": 7.2,
+          "std": 0.7
+        },
+        "appearance": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "overall": {
+          "mean": 2.8,
+          "std": 0.4
+        }
+      },
+      "outdoor": null
+    },
+    {
+      "name": "SceneGen",
+      "group": "Scene construction baselines",
+      "indoor": {
+        "validity": {
+          "mean": 71.6,
+          "std": 3.0
+        },
+        "reconstruction": {
+          "mean": 9.7,
+          "std": 1.8
+        },
+        "appearance": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "overall": {
+          "mean": 3.4,
+          "std": 0.5
+        }
+      },
+      "outdoor": {
+        "validity": {
+          "mean": 38.7,
+          "std": 1.5
+        },
+        "reconstruction": {
+          "mean": 2.6,
+          "std": 1.1
+        },
+        "appearance": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "overall": {
+          "mean": 0.5,
+          "std": 0.2
+        }
+      }
+    }
+  ]
+}

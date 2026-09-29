@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="LEGO-Anything turns a single image into an editable, executable 3D scene with coding agents. Explore LEGO-Bench, LEGO-Plugin, and LEGO-World.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LEGO-Anything: Coding Agents for 3D Scene Reconstruction">
+  <meta property="og:description" content="From a single image to an executable 3D world. A framework, benchmark, and plugin for agentic scene reconstruction.">
+  <meta property="og:image" content="https://xirui-li.github.io/lego-anything-website/assets/social-preview.jpg">
+  <meta property="og:url" content="https://xirui-li.github.io/lego-anything-website/">
+  <link rel="canonical" href="https://xirui-li.github.io/lego-anything-website/">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>LEGO-Anything · Coding Agents for 3D Scene Reconstruction</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+  <script src="architecture.js" type="module"></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-wrap container" aria-label="Main navigation">
+      <a class="wordmark" href="#paper-cover" aria-label="LEGO-Anything home">
+        <svg class="brand-mark" viewBox="0 0 36 38" aria-hidden="true"><path d="M18 2 33 10.5v17L18 36 3 27.5v-17Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 10.5 15 8.6 15-8.6M18 19v17M10.5 6.3 25.5 15v17M25.5 6.3 10.5 15v17" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        LEGO<span>-Anything</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="#overview" data-section-link>Overview</a>
+        <a href="#workflow" data-section-link>LEGO-Anything</a>
+        <a href="#benchmark" data-section-link>LEGO-Bench</a>
+        <a href="#plugin" data-section-link>LEGO-Plugin</a>
+        <a href="#world" data-section-link>LEGO-World</a>
+        <a href="#citation" data-section-link>Citation</a>
+        <a class="nav-paper" href="assets/paper.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <aside id="architecture-scene" class="architecture-scene" aria-hidden="true">
+    <img class="architecture-poster" src="assets/architecture-eiffel.webp" width="960" height="1648" alt="" loading="lazy">
+  </aside>
+
+  <main id="main">
+    <header class="screen paper-header" id="paper-cover" aria-labelledby="hero-title">
+      <div class="screen-content hero-content">
+      <p class="paper-date">SEPTEMBER 2026</p>
+      <h1 id="hero-title"><span class="project-name">LEGO-Anything:</span> <span class="paper-title">Coding Agents for 3D Scene Reconstruction</span></h1>
+      <p class="hero-description">One image. A coding agent. An editable 3D world.</p>
+      <div class="authors">
+        <span>Xirui Li<sup>1,2,*</sup></span><span>Peng Shi<sup>2</sup></span><span>Mingwen Dong<sup>2</sup></span><span>Sheng Zhang<sup>2</sup></span><span>Zhuoyan Xu<sup>2</sup></span><br class="author-break">
+        <span>Dongkyu Lee<sup>2</sup></span><span>Shuaichen Chang<sup>2</sup></span><span>Yi Xiang<sup>2</sup></span><span>Lin Pan<sup>2</sup></span><span>Jiarong Jiang<sup>2</sup></span>
+      </div>
+      <p class="affiliations"><span><sup>1</sup> University of Maryland, College Park</span><span><sup>2</sup> AWS</span></p>
+      <p class="author-note">* Work done during an internship at AWS</p>
+      <div class="resource-links">
+        <a class="button button-primary" href="assets/paper.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8Z"/><path d="M14 3v5h5M8 12h8M8 16h6"/></svg>Paper <span aria-hidden="true">↗</span></a>
+        <a class="button" href="https://github.com/xirui-li/lego-anything" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></svg>Code <span aria-hidden="true">↗</span></a>
+        <a class="button button-text" href="#citation">BibTeX <span aria-hidden="true">↓</span></a>
+      </div>
+      </div>
+    </header>
+
+    <section class="screen paper-section" id="overview" aria-labelledby="overview-title">
+      <div class="screen-content">
+        <div class="section-header"><h2 id="overview-title">Overview</h2>
+          <p>From image to code: a coding agent writes, renders, and revises a Blender program to reconstruct an editable, queryable 3D scene.</p>
+        </div>
+        <figure class="paper-figure overview-figure">
+        <button class="figure-zoom" type="button" data-zoom="assets/image_main_graph.webp" data-caption="From a single RGB image to an executable scene program and deterministic scene readouts." aria-label="Enlarge framework overview">
+          <img src="assets/image_main_graph.webp" width="2200" height="1002" loading="lazy" alt="LEGO-Anything framework: an input image of the Sydney Opera House is reconstructed as an editable scene, then queried for object detection, segmentation, and depth.">
+          <span class="zoom-hint" aria-hidden="true">↗ View figure</span>
+        </button>
+        <figcaption>One executable scene, with editable objects and deterministic vision readouts.</figcaption>
+      </figure>
+        <p class="section-takeaway">Write code. Render the scene. Inspect and refine.</p>
+      </div>
+    </section>
+
+    <section class="screen paper-section" id="workflow" aria-labelledby="workflow-title">
+      <div class="screen-content">
+        <div class="section-header"><h2 id="workflow-title">LEGO-Anything</h2>
+          <p>A coding agent turns the reference image into a Blender scene through planning, code execution, rendering, and iterative validation.</p>
+        </div>
+        <figure class="paper-figure agent-workflow">
+          <button class="figure-zoom" type="button" data-zoom="assets/image_workflow.webp" data-caption="Agentic scene construction, abstracted from a GPT-6-astra trajectory. Four blocks define the process: the Agent Workspace manages artifacts, the Action Space exposes agent operations, the Blender Code Structure organizes editable scene state, and the Scene Construction Workflow iterates from reference interpretation to validated final artifacts. Together, they enable executable, feedback-driven scene reconstruction." aria-label="Enlarge agent workflow">
+            <img src="assets/image_workflow.webp" width="2400" height="1136" loading="lazy" alt="LEGO-Anything agent workflow: interpret the reference, decompose and plan the scene, generate and execute Blender Python, render a preview, inspect visual and code feedback, revise, and export the final artifacts.">
+            <span class="zoom-hint" aria-hidden="true">↗ View workflow</span>
+          </button>
+          <figcaption><strong>Agentic scene construction, abstracted from a <code>GPT-6-astra</code> trajectory.</strong> Four blocks define the process: the Agent Workspace manages artifacts, the Action Space exposes agent operations, the Blender Code Structure organizes editable scene state, and the Scene Construction Workflow iterates from reference interpretation to validated final artifacts. Together, they enable executable, feedback-driven scene reconstruction.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="screen paper-section" id="benchmark" aria-labelledby="benchmark-title">
+      <div class="screen-content">
+        <div class="benchmark-heading">
+          <h2 id="benchmark-title">LEGO-Bench</h2><span class="chapter-page" aria-label="Part 1 of 2">1 / 2</span>
+        </div>
+        <div class="benchmark-dataset">
+          <h3>Dataset</h3>
+          <p><strong>208 images from 104 scenes</strong>, spanning 8 environments, 17 themes, and 443 assets. Indoor and outdoor scenes use nested Easy ⊂ Medium ⊂ Hard object sets with fixed architecture, camera, and lighting. Agents receive one RGB image and public metadata; geometry, depth, and instance masks remain private.</p>
+          <figure class="paper-figure dataset-pipeline">
+            <button class="figure-zoom" type="button" data-zoom="assets/image_data_engine.webp" data-caption="Extensible benchmark-construction pipeline. Fab assets are mined and assembled into candidate scenes; human verification triggers either remaking or annotation before acceptance. This human-in-the-loop process scales benchmark construction while retaining simulator ground truth and scene quality." aria-label="Enlarge dataset construction pipeline">
+              <img src="assets/image_data_engine.webp" width="2400" height="642" loading="lazy" alt="LEGO-Bench construction pipeline: mine Fab assets, assemble candidate scenes, verify scene quality, remake rejected scenes, and annotate accepted scenes with simulator ground truth.">
+              <span class="zoom-hint" aria-hidden="true">↗ View pipeline</span>
+            </button>
+            <figcaption>Extensible benchmark-construction pipeline.</figcaption>
+          </figure>
+        </div>
+        <div class="benchmark-evaluation">
+          <h3>Evaluation</h3>
+          <dl class="benchmark-metrics">
+            <div><dt>Validity (V)</dt><dd>Usable Blender scene, GLB export, and render; the scene must contain geometry and an active camera.</dd></div>
+            <div><dt>Reconstruction (R)</dt><dd>Object-averaged visible-surface F1 at a depth-scaled 5% tolerance, with no alignment or rescaling.</dd></div>
+            <div><dt>Appearance (A)</dt><dd>Fraction of pixels within 30/255 error in every RGB channel, using an evaluator re-render.</dd></div>
+          </dl>
+          <p class="benchmark-overall"><strong>Overall = mean[V × (R + A) / 2].</strong> All attempted cases count; invalid submissions and unresolved evaluation failures score zero.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen paper-section" id="benchmark-results" data-nav-section="benchmark" aria-labelledby="benchmark-results-title">
+      <div class="screen-content">
+        <div class="benchmark-heading">
+          <h2 id="benchmark-results-title">LEGO-Bench</h2><span class="chapter-page" aria-label="Part 2 of 2">2 / 2</span>
+        </div>
+        <div class="benchmark-results-heading"><h3>Results</h3><p>Overall score (%) · Mean ± standard deviation over three runs.</p></div>
+        <div class="results-table-wrap" tabindex="0" role="region" aria-label="Overall LEGO-Bench scores for six coding agents">
+          <table class="results-table benchmark-overview-table">
+            <caption class="sr-only">Overall LEGO-Bench scores, mean and standard deviation over three runs. Higher is better.</caption>
+            <thead><tr><th scope="col">Coding agent</th><th scope="col">Indoor ↑</th><th scope="col">Outdoor ↑</th></tr></thead>
+            <tbody><!-- BENCHMARK-SUMMARY:START -->
+<tr><th scope="row">GPT-6-astra</th><td class="best-value"><span class="mean">53.4</span><span class="std"> ± 0.8</span></td><td class="best-value"><span class="mean">39.6</span><span class="std"> ± 0.8</span></td></tr>
+<tr><th scope="row">GPT-6-sol</th><td><span class="mean">32.3</span><span class="std"> ± 1.0</span></td><td><span class="mean">24.2</span><span class="std"> ± 0.4</span></td></tr>
+<tr><th scope="row">GPT-6-luna</th><td><span class="mean">23.2</span><span class="std"> ± 0.7</span></td><td><span class="mean">17.3</span><span class="std"> ± 0.5</span></td></tr>
+<tr><th scope="row">GPT-5.6-sol</th><td><span class="mean">14.8</span><span class="std"> ± 1.0</span></td><td><span class="mean">15.3</span><span class="std"> ± 0.8</span></td></tr>
+<tr><th scope="row">GPT-5.6-terra</th><td><span class="mean">15.4</span><span class="std"> ± 0.6</span></td><td><span class="mean">11.5</span><span class="std"> ± 0.4</span></td></tr>
+<tr><th scope="row">GPT-5.6-luna</th><td><span class="mean">14.1</span><span class="std"> ± 1.3</span></td><td><span class="mean">12.1</span><span class="std"> ± 1.0</span></td></tr>
+<!-- BENCHMARK-SUMMARY:END --></tbody>
+          </table>
+        </div>
+        <div class="benchmark-findings">
+          <h3>Findings</h3>
+          <p>GPT-6-astra leads on both splits. High artifact validity still leaves substantial gaps in geometric and visual fidelity, and outdoor scenes are harder at every complexity tier.</p>
+        </div>
+        <div class="section-actions">
+          <button class="button" type="button" data-open-dialog="findings-dialog">See full findings <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen paper-section" id="plugin" aria-labelledby="plugin-title">
+      <div class="screen-content">
+        <div class="plugin-heading">
+          <h2 id="plugin-title">LEGO-Plugin</h2><span class="chapter-page" aria-label="Part 1 of 2">1 / 2</span>
+        </div>
+        <div class="trajectory-intro">
+          <h3>Trajectory analysis</h3>
+        </div>
+        <figure class="paper-figure trajectory-figure">
+          <button class="figure-zoom" type="button" data-zoom="assets/image_trajectory.png" data-caption="Scene quality over construction time. GPT-6-astra reaches an evaluable scene earlier and refines it steadily, whereas GPT-5.6-sol starts later and regresses more often. The gap shows that reliable construction depends on fast initialization and protection against regressive edits." aria-label="Enlarge trajectory analysis">
+            <img src="assets/image_trajectory.png" width="3600" height="850" loading="lazy" alt="Reconstruction, appearance, and overall scores over normalized construction time: GPT-6-astra initializes earlier and improves more steadily than GPT-5.6-sol, whose later edits can reduce scene quality.">
+            <span class="zoom-hint" aria-hidden="true">↗ View figure</span>
+          </button>
+          <figcaption><strong>Scene quality over construction time.</strong> <code>GPT-6-astra</code> reaches an evaluable scene earlier and refines it steadily, whereas <code>GPT-5.6-sol</code> starts later and regresses more often. The gap shows that reliable construction depends on fast initialization and protection against regressive edits.</figcaption>
+        </figure>
+        <dl class="trajectory-observations">
+          <div><dt>First evaluable scene</dt><dd>GPT-6-astra: <strong>~10%</strong> of budget; GPT-5.6-sol: <strong>~20%</strong>.</dd></div>
+          <div><dt>Regressive edits</dt><dd><strong>29.6%</strong> of GPT-5.6-sol’s edits decrease the score.</dd></div>
+          <div><dt>Lost progress</dt><dd>GPT-5.6-sol finishes <strong>3.2 points</strong> below its best scene.</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="screen paper-section" id="plugin-method" data-nav-section="plugin" aria-labelledby="plugin-method-title">
+      <div class="screen-content">
+        <div class="section-header">
+          <div class="plugin-heading"><h2 id="plugin-method-title">LEGO-Plugin</h2><span class="chapter-page" aria-label="Part 2 of 2">2 / 2</span></div>
+          <p>Training-free initialization, grounded refinement, and version control. Improves all six evaluated models, with up to <strong>62.7% relative gain</strong> on the Office subset.</p>
+        </div>
+        <figure class="paper-figure plugin-workflow">
+        <button class="figure-zoom" type="button" data-zoom="assets/image_LEGO_plugin.webp" data-caption="LEGO-Plugin adds enhanced initialization, grounded refinement, and version control to the native coding-agent workflow." aria-label="Enlarge LEGO-Plugin workflow"><img src="assets/image_LEGO_plugin.webp" width="2200" height="571" loading="lazy" alt="LEGO-Plugin workflow illustrating enhanced initialization, grounded refinement, and version control."><span class="zoom-hint" aria-hidden="true">↗ View workflow</span></button>
+      </figure>
+        <div class="plugin-results">
+          <h3>With and without the plugin</h3>
+          <dl class="plugin-gains" aria-label="Relative overall-score gains from LEGO-Plugin">
+            <div><dt>GPT-5.6-luna</dt><dd>+62.7<span>%</span></dd></div>
+            <div><dt>GPT-5.6-terra</dt><dd>+55.8<span>%</span></dd></div>
+            <div><dt>GPT-5.6-sol</dt><dd>+55.3<span>%</span></dd></div>
+            <div><dt>GPT-6-luna</dt><dd>+27.5<span>%</span></dd></div>
+            <div><dt>GPT-6-sol</dt><dd>+12.1<span>%</span></dd></div>
+            <div><dt>GPT-6-astra</dt><dd>+2.1<span>%</span></dd></div>
+          </dl>
+          <p class="figure-note">Relative overall-score gain · 42-case Office subset.</p>
+        </div>
+        <div class="section-actions">
+          <button class="button" type="button" data-open-dialog="plugin-examples-dialog">View examples <span aria-hidden="true">↗</span></button>
+          <button class="button" type="button" data-zoom="assets/image_lego_plugin_model_comparison.webp" data-caption="Overall scores with and without LEGO-Plugin on the 42-case Office subset.">Model comparison <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen paper-section" id="world" aria-labelledby="world-title">
+      <div class="screen-content">
+        <div class="section-header"><h2 id="world-title">LEGO-World</h2>
+          <p>One reconstructed scene yields object detections, instance masks, and depth—through deterministic queries, without task-specific training.</p>
+        </div>
+        <div class="results-table-wrap" tabindex="0" role="region" aria-label="LEGO-World results">
+        <table class="world-table">
+          <caption class="sr-only">LEGO-World results compared with specialized vision models.</caption>
+          <thead><tr><th scope="col">Task / dataset</th><th scope="col">Metric</th><th scope="col">LEGO-Anything</th><th scope="col">Specialized model</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Detection <span>COCO</span></th><td>Box AP ↑</td><td>30.14</td><td>59.88 <span>DINO</span></td></tr>
+            <tr><th scope="row">Segmentation <span>LVIS</span></th><td>Mask AP ↑</td><td>14.75</td><td>53.96 <span>Segment Anything 3</span></td></tr>
+            <tr><th scope="row">Depth <span>ETH3D</span></th><td>AbsRel ↓</td><td>0.1554</td><td>0.0783 <span>Depth Anything 3</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+        <p class="figure-note">GPT-6-astra, without LEGO-Plugin · 100 images per task. AP uses equal-confidence predictions.</p>
+        <p class="section-takeaway">Scene readouts support all three tasks, with a clear gap to specialized vision models.</p>
+        <div class="section-actions"><a class="button" href="assets/paper.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a><a class="button button-text" href="#paper-cover">Back to top ↑</a></div>
+      </div>
+    </section>
+    <section class="screen paper-section" id="citation" aria-labelledby="citation-title">
+      <div class="screen-content">
+    <div class="citation-heading"><div><h2 id="citation-title">Citation</h2></div><button id="copy-citation" class="button" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V4a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h4"/></svg><span>Copy BibTeX</span></button></div>
+      <pre class="citation-code"><code id="bibtex">@misc{li2026legoanything,
+  title   = {LEGO-Anything: Coding Agents for 3D Scene Reconstruction},
+  author  = {Li, Xirui and Shi, Peng and Dong, Mingwen and
+             Zhang, Sheng and Xu, Zhuoyan and Lee, Dongkyu and
+             Chang, Shuaichen and Xiang, Yi and Pan, Lin and Jiang, Jiarong},
+  year    = {2026},
+  month   = sep,
+  note    = {Preprint},
+  url     = {https://xirui-li.github.io/lego-anything-website/}
+}</code></pre>
+      <p id="copy-status" class="copy-status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="plugin-examples-dialog" class="content-dialog plugin-dialog" aria-labelledby="plugin-examples-title">
+    <button class="dialog-close" type="button" aria-label="Close plugin examples">×</button>
+    <div class="plugin-dialog-header">
+      <h2 id="plugin-examples-title">With and without the plugin</h2>
+      <div class="segmented" role="group" aria-label="Plugin example"><button type="button" data-plugin="reception" aria-pressed="true">Reception</button><button type="button" data-plugin="copy-room" aria-pressed="false">Copy room</button></div>
+    </div>
+    <div class="plugin-dialog-body">
+      <div class="plugin-comparison">
+        <figure><button class="figure-zoom" type="button" data-zoom-current aria-label="Enlarge plugin comparison image"><img id="plugin-reference" src="assets/plugin_examples/reception_l2_reference.webp" width="512" height="288" loading="lazy" alt="Reception reference image"></button><figcaption><span>Reference image</span></figcaption></figure>
+        <figure><button class="figure-zoom" type="button" data-zoom-current aria-label="Enlarge plugin comparison image"><img id="plugin-base" src="assets/plugin_examples/reception_l2_base.webp" width="512" height="288" loading="lazy" alt="Reception reconstructed without LEGO-Plugin"></button><figcaption><span>Without plugin</span><strong id="plugin-base-score">14.7</strong></figcaption></figure>
+        <figure class="plugin-after"><button class="figure-zoom" type="button" data-zoom-current aria-label="Enlarge plugin comparison image"><img id="plugin-output" src="assets/plugin_examples/reception_l2_plugin.webp" width="512" height="288" loading="lazy" alt="Reception reconstructed with LEGO-Plugin"></button><figcaption><span>With plugin</span><strong id="plugin-output-score">32.5</strong></figcaption></figure>
+      </div>
+      <p class="figure-note">GPT-5.6-sol · Overall score (%) · Baseline: best of three runs.</p>
+    </div>
+  </dialog>
+  <dialog id="findings-dialog" class="content-dialog findings-dialog" aria-labelledby="findings-title">
+    <button class="dialog-close" type="button" aria-label="Close findings">×</button>
+    <div class="findings-header">
+      <h2 id="findings-title">LEGO-Bench findings</h2>
+      <div class="findings-tabs" role="tablist" aria-label="Benchmark findings">
+        <button id="finding-tab-1" role="tab" type="button" data-finding="0" aria-selected="true" aria-controls="finding-1" tabindex="0">Findings 1</button>
+        <button id="finding-tab-2" role="tab" type="button" data-finding="1" aria-selected="false" aria-controls="finding-2" tabindex="-1">Findings 2</button>
+        <button id="finding-tab-3" role="tab" type="button" data-finding="2" aria-selected="false" aria-controls="finding-3" tabindex="-1">Findings 3</button>
+      </div>
+    </div>
+    <div class="findings-viewport">
+      <section id="finding-1" class="finding-panel" role="tabpanel" aria-labelledby="finding-tab-1" tabindex="0">
+        <h3>How well do coding agents reconstruct 3D scenes?</h3>
+        <p class="finding-summary">GPT-6-astra achieves the best overall score, surpassing task-specific and single-image scene-construction baselines. Coding agents deliver valid artifacts across indoor and outdoor scenes.</p>
+    <div class="results-heading">
+        <p>Mean ± standard deviation (%) over three runs. Higher is better.</p>
+        <div class="segmented" role="group" aria-label="Benchmark split"><button type="button" data-split="indoor" aria-pressed="true">Indoor</button><button type="button" data-split="outdoor" aria-pressed="false">Outdoor</button></div>
+      </div>
+      <div class="results-table-wrap" tabindex="0" role="region" aria-label="Benchmark results, scroll horizontally on small screens">
+          <table class="results-table">
+            <caption class="sr-only" id="results-caption">LEGO-Bench indoor results. Mean and standard deviation over three runs.</caption>
+            <thead><tr><th scope="col">Model / system</th><th scope="col">Validity <span>↑</span></th><th scope="col">Reconstruction <span>↑</span></th><th scope="col">Appearance <span>↑</span></th><th scope="col" class="score-heading">Overall <span>↑</span></th></tr></thead>
+            <tbody id="results-body"><!-- RESULTS:START -->
+<tr class="leading-row"><th scope="row">GPT-6-astra<span class="harness"> + Codex</span></th><td class="best-value"><span class="mean">100.0</span><span class="std"> ± 0.0</span></td><td class="best-value"><span class="mean">52.4</span><span class="std"> ± 1.1</span></td><td class="best-value"><span class="mean">54.4</span><span class="std"> ± 0.7</span></td><td class="overall-cell best-value"><span class="mean">53.4</span><span class="std"> ± 0.8</span></td></tr>
+<tr><th scope="row">GPT-6-sol<span class="harness"> + Codex</span></th><td class=""><span class="mean">99.4</span><span class="std"> ± 1.1</span></td><td class=""><span class="mean">22.2</span><span class="std"> ± 2.4</span></td><td class=""><span class="mean">42.5</span><span class="std"> ± 0.3</span></td><td class="overall-cell"><span class="mean">32.3</span><span class="std"> ± 1.0</span></td></tr>
+<tr><th scope="row">GPT-6-luna<span class="harness"> + Codex</span></th><td class=""><span class="mean">99.7</span><span class="std"> ± 0.5</span></td><td class=""><span class="mean">15.8</span><span class="std"> ± 1.2</span></td><td class=""><span class="mean">30.5</span><span class="std"> ± 0.3</span></td><td class="overall-cell"><span class="mean">23.2</span><span class="std"> ± 0.7</span></td></tr>
+<tr><th scope="row">GPT-5.6-sol<span class="harness"> + Codex</span></th><td class=""><span class="mean">97.8</span><span class="std"> ± 2.3</span></td><td class=""><span class="mean">9.8</span><span class="std"> ± 2.1</span></td><td class=""><span class="mean">19.8</span><span class="std"> ± 0.6</span></td><td class="overall-cell"><span class="mean">14.8</span><span class="std"> ± 1.0</span></td></tr>
+<tr><th scope="row">GPT-5.6-terra<span class="harness"> + Codex</span></th><td class=""><span class="mean">99.7</span><span class="std"> ± 0.5</span></td><td class=""><span class="mean">9.5</span><span class="std"> ± 1.0</span></td><td class=""><span class="mean">21.3</span><span class="std"> ± 0.5</span></td><td class="overall-cell"><span class="mean">15.4</span><span class="std"> ± 0.6</span></td></tr>
+<tr><th scope="row">GPT-5.6-luna<span class="harness"> + Codex</span></th><td class=""><span class="mean">99.1</span><span class="std"> ± 0.0</span></td><td class=""><span class="mean">10.2</span><span class="std"> ± 2.1</span></td><td class=""><span class="mean">18.0</span><span class="std"> ± 0.7</span></td><td class="overall-cell"><span class="mean">14.1</span><span class="std"> ± 1.3</span></td></tr>
+<!-- RESULTS:END --></tbody>
+          </table>
+        </div>
+      <div class="results-footer"><p id="results-note" aria-live="polite">GPT-6-astra reaches 53.4% overall indoors.</p><button class="text-button" id="baseline-toggle" type="button" aria-expanded="false">Show all baselines <span aria-hidden="true">↓</span></button></div>
+      <p class="figure-note"><strong>Performance on LEGO-Bench.</strong> Values follow the manuscript’s main results table. Unsupported outdoor settings are marked “—”.</p>
+    <details class="metric-details"><summary>Evaluation metrics</summary><dl class="metric-definitions">
+        <div><dt>Validity (V)</dt><dd>Whether the submission contains usable Blender, GLB, and rendered-image artifacts.</dd></div>
+        <div><dt>Reconstruction (R)</dt><dd>Object-averaged visible-surface F1 at a depth-scaled 5% tolerance, without alignment or rescaling.</dd></div>
+        <div><dt>Appearance (A)</dt><dd>The fraction of pixels whose evaluator-render error is at most 30 in every 8-bit sRGB channel.</dd></div>
+        <div><dt>Overall (S)</dt><dd>The mean of V × (R + A) / 2 over all attempted cases; invalid artifacts and unresolved evaluation failures receive zero.</dd></div>
+      </dl></details>
+      </section>
+      <section id="finding-2" class="finding-panel" role="tabpanel" aria-labelledby="finding-tab-2" tabindex="0" hidden>
+        <h3>How does scene complexity affect performance?</h3>
+        <p class="finding-summary">Greater scene complexity lowers both Reconstruction and Appearance while leaving Validity intact, and outdoor scenes are harder than indoor scenes at every complexity tier.</p>
+        <div class="results-table-wrap" tabindex="0" role="region" aria-label="Reconstruction and appearance across scene complexity tiers">
+          <table class="results-table complexity-table">
+            <caption class="sr-only">Performance across scene-complexity tiers. Mean ± standard deviation (%).</caption>
+            <thead>
+              <tr><th scope="col" rowspan="2">Tier</th><th scope="colgroup" colspan="2">Indoor</th><th scope="colgroup" colspan="2">Outdoor</th></tr>
+              <tr><th scope="col">R ↑</th><th scope="col">A ↑</th><th scope="col">R ↑</th><th scope="col">A ↑</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Easy</th><td><span class="mean">23.3</span><span class="std"> ± 0.1</span></td><td><span class="mean">30.4</span><span class="std"> ± 0.6</span></td><td><span class="mean">18.4</span><span class="std"> ± 0.9</span></td><td><span class="mean">25.3</span><span class="std"> ± 0.4</span></td></tr>
+              <tr><th scope="row">Medium</th><td><span class="mean">19.7</span><span class="std"> ± 1.2</span></td><td><span class="mean">27.9</span><span class="std"> ± 0.6</span></td><td><span class="mean">14.2</span><span class="std"> ± 1.0</span></td><td><span class="mean">22.8</span><span class="std"> ± 0.9</span></td></tr>
+              <tr><th scope="row">Hard</th><td><span class="mean">18.8</span><span class="std"> ± 0.4</span></td><td><span class="mean">27.4</span><span class="std"> ± 0.5</span></td><td><span class="mean">12.7</span><span class="std"> ± 1.0</span></td><td><span class="mean">22.4</span><span class="std"> ± 0.3</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="figure-note">R: Reconstruction · A: Appearance · Averaged over all six coding-agent configurations.</p>
+        <p class="finding-evidence">Validity stays at <strong>99.5%</strong> across tiers, while the overall score falls from <strong>24.6%</strong> (Easy) to <strong>21.3%</strong> (Medium) and <strong>20.5%</strong> (Hard). The steepest drop is in outdoor reconstruction: 18.4% → 12.7%.</p>
+      </section>
+      <section id="finding-3" class="finding-panel" role="tabpanel" aria-labelledby="finding-tab-3" tabindex="0" hidden>
+        <h3>Does more reasoning improve scene reconstruction?</h3>
+        <p class="finding-summary">Higher reasoning effort improves all three GPT-6 models, with larger gains for stronger models, while GPT-5.6 models show no consistent improvement.</p>
+        <figure class="paper-figure reasoning-figure">
+          <button class="figure-zoom" type="button" data-zoom="assets/image_reasoning_efforts.webp" data-caption="Test-time scaling improves GPT-6 performance." aria-label="Enlarge reasoning effort results">
+            <img src="assets/image_reasoning_efforts.webp" width="2200" height="1828" loading="lazy" alt="LEGO-Bench overall score on the Office subset increases from Low through XHigh reasoning effort for GPT-6-astra, GPT-6-sol, and GPT-6-luna.">
+            <span class="zoom-hint" aria-hidden="true">↗ View figure</span>
+          </button>
+          <figcaption>Test-time scaling improves <code>GPT-6</code> performance.</figcaption>
+        </figure>
+        <p class="figure-note">42-case Office subset · Fixed inputs, prompts, execution budgets, and scoring.</p>
+      </section>
+    </div>
+    <div class="findings-controls" aria-label="Switch findings">
+      <button class="button" id="finding-prev" type="button" aria-label="Previous finding" aria-disabled="true"><span aria-hidden="true">←</span> Previous</button>
+      <p id="finding-position" role="status" aria-live="polite" aria-atomic="true">Findings 1 of 3</p>
+      <button class="button" id="finding-next" type="button" aria-label="Next finding">Next <span aria-hidden="true">→</span></button>
+    </div>
+  </dialog>
+  <dialog id="figure-dialog" class="figure-dialog" aria-label="Enlarged paper figure">
+    <button class="dialog-close" type="button" aria-label="Close enlarged figure">×</button>
+    <figure><img id="dialog-image" alt=""><figcaption id="dialog-caption"></figcaption></figure>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,300 @@
+{
+  "paperRepository": "https://github.com/xirui-li/-ArXiv-LEGO-Anything",
+  "paperCommit": "575fd259635d8800984abd74eb45e25f386f2679",
+  "assets": {
+    "assets/appendix_c_examples/ex01_gpt56_luna.webp": {
+      "source": "figures/appendix_c_examples/ex01_gpt56_luna.png",
+      "sourceSHA256": "79d1ebe2fabcde0f724420c126b91932c468e8a758afa675a514140dc664c5e0",
+      "outputSHA256": "06c8556ff1eda3d61c0930167ebf4eba2d6bf8bc7c4ed1ed083bbd1cfb76aa31"
+    },
+    "assets/appendix_c_examples/ex01_gpt56_sol.webp": {
+      "source": "figures/appendix_c_examples/ex01_gpt56_sol.png",
+      "sourceSHA256": "af98dd9a08b57b1260ab4309e450a9dfc23c5fce9b807f4842631f93e79aac2d",
+      "outputSHA256": "0d311ac433a5390df2fe27f6974b3067af0c54bee898626d4fb97ab76893188b"
+    },
+    "assets/appendix_c_examples/ex01_gpt56_terra.webp": {
+      "source": "figures/appendix_c_examples/ex01_gpt56_terra.png",
+      "sourceSHA256": "00458575f0c11e76b985c5bc49f2c5249924a2a126474c70e4d4f5146ed22664",
+      "outputSHA256": "450aa5cabe42aec136c42e140db5e1686d8c4b8d93df0e7d1dc26db97890a836"
+    },
+    "assets/appendix_c_examples/ex01_gpt6_astra.webp": {
+      "source": "figures/appendix_c_examples/ex01_gpt6_astra.png",
+      "sourceSHA256": "180a581a73fa6ef345856ab926c0a2cc756e8ca3d9784dd3f0057920a5318ec4",
+      "outputSHA256": "c53a36d98c57ad6e34cea5a3d9dad297ca0ff3bfdf91b6ade2e4cb530b5d896f"
+    },
+    "assets/appendix_c_examples/ex01_gpt6_luna.webp": {
+      "source": "figures/appendix_c_examples/ex01_gpt6_luna.png",
+      "sourceSHA256": "d70b51470f56caf74c494b8e20c1ca3a94247e5ffc4593d159ff18b5ec22017d",
+      "outputSHA256": "724b94947143740d8ed2602838d377bf6caffc902851d0f1782d06197d8981c2"
+    },
+    "assets/appendix_c_examples/ex01_gpt6_sol.webp": {
+      "source": "figures/appendix_c_examples/ex01_gpt6_sol.png",
+      "sourceSHA256": "e9111bac6f28a59b2d42bccdd7625ae185649395a338db4b48e5495004ab1046",
+      "outputSHA256": "dc1a7c4f3eaa751e5fa22d4fe9b793efec7e19b645a8e9e5d495d5cb54cdf220"
+    },
+    "assets/appendix_c_examples/ex01_ref.webp": {
+      "source": "figures/appendix_c_examples/ex01_ref.png",
+      "sourceSHA256": "5a02187e7d86bf51955191a0de2a2cae5b381d90e37299509ed01e0bd6c6842d",
+      "outputSHA256": "001a1b0111ef17f69ba499b0ae97cd80667def4211ed6e755ca40f90ae2e2055"
+    },
+    "assets/appendix_c_examples/ex02_gpt56_luna.webp": {
+      "source": "figures/appendix_c_examples/ex02_gpt56_luna.png",
+      "sourceSHA256": "9e6e42f9f1725786bf563de7b3e6aee43af8fd1e01e8c589fcad384a864209e2",
+      "outputSHA256": "32e82886181d1e13a0307a7cecc3b4e4feae38770868df879c077479b1055245"
+    },
+    "assets/appendix_c_examples/ex02_gpt56_sol.webp": {
+      "source": "figures/appendix_c_examples/ex02_gpt56_sol.png",
+      "sourceSHA256": "d505ad9503ab6af7609ea23f0aa24948df3c63d3ec889096a4c9b8402e85d151",
+      "outputSHA256": "7470870c2f1927544310a1e80536aa966cd8b6fcf991ae8cb41c3c260d0230ba"
+    },
+    "assets/appendix_c_examples/ex02_gpt56_terra.webp": {
+      "source": "figures/appendix_c_examples/ex02_gpt56_terra.png",
+      "sourceSHA256": "62951d3048aea150ffedb8f686fe80e3b56caaff81a4b7a77690d07c134798c7",
+      "outputSHA256": "bbad22362fe98cd3a80075016caab159392778eaed467db850566b71daa804c8"
+    },
+    "assets/appendix_c_examples/ex02_gpt6_astra.webp": {
+      "source": "figures/appendix_c_examples/ex02_gpt6_astra.png",
+      "sourceSHA256": "224cf03d45a0f558e35ba4d7b05350502ad7529b6aaeb416a69eac425b687243",
+      "outputSHA256": "ac8859663923d40081011001affc5cf69f94b886a5680d27c2488690702eaf07"
+    },
+    "assets/appendix_c_examples/ex02_gpt6_luna.webp": {
+      "source": "figures/appendix_c_examples/ex02_gpt6_luna.png",
+      "sourceSHA256": "29e857f48f3af84f5c558a3db7e2f4d7ba21769966423e5a4a0b56ce7cca141e",
+      "outputSHA256": "821bc79a460d6a61652466baed092761a617cada18b79e3b444e27bfb092155b"
+    },
+    "assets/appendix_c_examples/ex02_gpt6_sol.webp": {
+      "source": "figures/appendix_c_examples/ex02_gpt6_sol.png",
+      "sourceSHA256": "2c4f5ecd930a6ddee49b67cba1be5e36152a36e9b255681fcbe187950ac35701",
+      "outputSHA256": "9a1188ad77500c844888813010bd9d7841c80867085bc7fe538bd356841257c4"
+    },
+    "assets/appendix_c_examples/ex02_ref.webp": {
+      "source": "figures/appendix_c_examples/ex02_ref.png",
+      "sourceSHA256": "a78fa828f2b6395c2f45f127a86821d8a80bfec19b3dabc9d73020d2c0d6608e",
+      "outputSHA256": "09be2774d77d26ce1bff7d830049d83b16cebff1785e1725fc8f773bfd9de465"
+    },
+    "assets/appendix_c_examples/ex03_gpt56_luna.webp": {
+      "source": "figures/appendix_c_examples/ex03_gpt56_luna.png",
+      "sourceSHA256": "cd7922fc1c410f10048ff60b93c05445694564526159281a746e814368ff13f4",
+      "outputSHA256": "630cd8124943673d0a02317fa0293401255922d70939a3f55a2e007b00f36801"
+    },
+    "assets/appendix_c_examples/ex03_gpt56_sol.webp": {
+      "source": "figures/appendix_c_examples/ex03_gpt56_sol.png",
+      "sourceSHA256": "a0c881a4bed36a45d58a8c4704f727328fa45dbf4a4159ad53b2acef60c0dc2d",
+      "outputSHA256": "bfc65b0f8f7f58ba34b3cdd4303418ec36349660bab2800940f848574e49956b"
+    },
+    "assets/appendix_c_examples/ex03_gpt56_terra.webp": {
+      "source": "figures/appendix_c_examples/ex03_gpt56_terra.png",
+      "sourceSHA256": "3ffcb24663f4425ece466099720590c9b981fcfa0f091b3ec603f74475121f5e",
+      "outputSHA256": "eb2f65d3fd0e2dd5d365668e47b8fdab8ce3d22d5a7c77f2886885c9d0747e9b"
+    },
+    "assets/appendix_c_examples/ex03_gpt6_astra.webp": {
+      "source": "figures/appendix_c_examples/ex03_gpt6_astra.png",
+      "sourceSHA256": "536545abadb6275835cd62e5bec26df00459281c4eeb4adf98e0277649576d77",
+      "outputSHA256": "2b7758d23898a7e0d40d4908ced31961b39a2125321ce5edd289332dfdc99404"
+    },
+    "assets/appendix_c_examples/ex03_gpt6_luna.webp": {
+      "source": "figures/appendix_c_examples/ex03_gpt6_luna.png",
+      "sourceSHA256": "10a9f0818f75932f9703af6acb17b47c964df70d9967b02575905fc615da82d0",
+      "outputSHA256": "d752ad1492def864559d1e7ea4c48b76c7079eccfd286f7de04b79c09f456d89"
+    },
+    "assets/appendix_c_examples/ex03_gpt6_sol.webp": {
+      "source": "figures/appendix_c_examples/ex03_gpt6_sol.png",
+      "sourceSHA256": "75be3cf9c4088f5a546c7b3cb2e1b77a0c7b4c7d3c53a2b3f29d8abdcb137b57",
+      "outputSHA256": "d922a6506f0054d520a19a8afdc02fb754997195acb6748b271a179218fc19c7"
+    },
+    "assets/appendix_c_examples/ex03_ref.webp": {
+      "source": "figures/appendix_c_examples/ex03_ref.png",
+      "sourceSHA256": "cd49cc22eb1de18dc0267b1dc4b89a10c918437ce31d66922c487233e6b05a52",
+      "outputSHA256": "bfca8112c858132d5f270c102b78cf0dcfd75908269034ffd6ce930cea77b86d"
+    },
+    "assets/appendix_c_examples/ex04_gpt56_luna.webp": {
+      "source": "figures/appendix_c_examples/ex04_gpt56_luna.png",
+      "sourceSHA256": "ef106f316035b830be67dc1a417febc2a815c8020dd9f36bd3d369329e42ee02",
+      "outputSHA256": "182638d606f12706764b6c41f435f5eca125e77c625fe8fe69cdc800e79735a7"
+    },
+    "assets/appendix_c_examples/ex04_gpt56_sol.webp": {
+      "source": "figures/appendix_c_examples/ex04_gpt56_sol.png",
+      "sourceSHA256": "1e6988ebd43db5c224a19c6c63e0d25871c575357109438a71ba0357d882ed91",
+      "outputSHA256": "edf425cb7f7a7cb9762607ab16772ced172a538b81ff86f10ca07770ffb6f20e"
+    },
+    "assets/appendix_c_examples/ex04_gpt56_terra.webp": {
+      "source": "figures/appendix_c_examples/ex04_gpt56_terra.png",
+      "sourceSHA256": "b0f2cda111042700898681fa1fcd58da947d8b90d257091a7aba543928239ea0",
+      "outputSHA256": "516a7b9ec89adc784c84ad2578bc37d9cbcaaf51262bbad3ec052dd83b0c0e7f"
+    },
+    "assets/appendix_c_examples/ex04_gpt6_astra.webp": {
+      "source": "figures/appendix_c_examples/ex04_gpt6_astra.png",
+      "sourceSHA256": "9e1d13033a1c1e6e817482c0356d92a5b55e2a5f03fa13cd02b1f6d68ac76b42",
+      "outputSHA256": "54519209e70356f18b44922004db7314a5513dd3622cf5a6a713e14b81256854"
+    },
+    "assets/appendix_c_examples/ex04_gpt6_luna.webp": {
+      "source": "figures/appendix_c_examples/ex04_gpt6_luna.png",
+      "sourceSHA256": "bca18e92cd1cd5482526718a0fb8f6d320327ffb1a44b132bc0e1670662b5a68",
+      "outputSHA256": "2cfc24da323834a7d5dbafff93a16784512a8f9dd147db94ea4572d55a2b2197"
+    },
+    "assets/appendix_c_examples/ex04_gpt6_sol.webp": {
+      "source": "figures/appendix_c_examples/ex04_gpt6_sol.png",
+      "sourceSHA256": "8d51ce6fe3b542cafbfb2afc57be08934db3a8e54b431803ecf37b35147cd43f",
+      "outputSHA256": "288d8088f5ca0474fc316ceb5d801e13edf477462251051afd74ec1055f48033"
+    },
+    "assets/appendix_c_examples/ex04_ref.webp": {
+      "source": "figures/appendix_c_examples/ex04_ref.png",
+      "sourceSHA256": "246f22c8de8328150dddc626150c7f7cfa5799ffb42073f00220651d544adbe7",
+      "outputSHA256": "db9c396b6fec9a338ebebd47010980f05462f1bf4079880f8b8fcc43be94fed6"
+    },
+    "assets/appendix_c_examples/ex05_gpt56_luna.webp": {
+      "source": "figures/appendix_c_examples/ex05_gpt56_luna.png",
+      "sourceSHA256": "e4b4812cd78c3d3a4a4d6e7c48a1fbb5fa3a918925d5ba5b6426423818527cda",
+      "outputSHA256": "923cd48648ca09dd5440c1140a920f116cd19b3582e9622ea716162d72398356"
+    },
+    "assets/appendix_c_examples/ex05_gpt56_sol.webp": {
+      "source": "figures/appendix_c_examples/ex05_gpt56_sol.png",
+      "sourceSHA256": "f665e490374d26762182b7a62b0599fc8996c5eee3b524470d4a0da6aebd46d4",
+      "outputSHA256": "089bc3a92593324d11bb3d0fc20c19152633bfb0e2e362233f7a6b22e096453c"
+    },
+    "assets/appendix_c_examples/ex05_gpt56_terra.webp": {
+      "source": "figures/appendix_c_examples/ex05_gpt56_terra.png",
+      "sourceSHA256": "5b91dd26d5a4b8a2b55c85ec51abe546ab593bbf94b7d63b1a0a59833ea1c052",
+      "outputSHA256": "5174573f251af9596f69af34f8524f7729e8b0c5c3da10b7f499bd38c784f33b"
+    },
+    "assets/appendix_c_examples/ex05_gpt6_astra.webp": {
+      "source": "figures/appendix_c_examples/ex05_gpt6_astra.png",
+      "sourceSHA256": "bf03a3a4243417536de5ad74773b9c5e3571c52d9d7d66fc66fad3e5666f03d0",
+      "outputSHA256": "5cd0b572963de3fed348a6fdaa41c135fdf25d3534fca430c0ffbc35b1a7bbf6"
+    },
+    "assets/appendix_c_examples/ex05_gpt6_luna.webp": {
+      "source": "figures/appendix_c_examples/ex05_gpt6_luna.png",
+      "sourceSHA256": "0984f3168ab2f2c6c21ce5af43652499476cdc5144322edfcd86bcc7e820534f",
+      "outputSHA256": "0b015e5a5c02dc056b865ebf8cee8ee31513ddf0693985e86c6747443394ba27"
+    },
+    "assets/appendix_c_examples/ex05_gpt6_sol.webp": {
+      "source": "figures/appendix_c_examples/ex05_gpt6_sol.png",
+      "sourceSHA256": "b81b4933f58610f6f47161d6fd9859b874f84412fa8c749c2ffaa6cad4760742",
+      "outputSHA256": "977c6be50fe3b863b151670e5dca633d8ecd305eb5621687b64a3e04abfc880a"
+    },
+    "assets/appendix_c_examples/ex05_ref.webp": {
+      "source": "figures/appendix_c_examples/ex05_ref.png",
+      "sourceSHA256": "32d72e84e0911841bb420862f55d3c34836a9f4f062f5fba83978db23f9d5b40",
+      "outputSHA256": "d4fbb532dcb629c084db55ffe6d2b52d5bf179c89983c93b80f1a32e16443c2b"
+    },
+    "assets/appendix_c_examples/ex06_gpt56_luna.webp": {
+      "source": "figures/appendix_c_examples/ex06_gpt56_luna.png",
+      "sourceSHA256": "820be21b8e589f6542253eda6f052bea1a92f8204c8f9ded74f47b783798508e",
+      "outputSHA256": "432a30528dbb121298121468a8d03ed6b0c34c22eee07ae1176d980f8037835e"
+    },
+    "assets/appendix_c_examples/ex06_gpt56_sol.webp": {
+      "source": "figures/appendix_c_examples/ex06_gpt56_sol.png",
+      "sourceSHA256": "63d962cfd4ecb34bdc154b7025e58d9b4656af240abf382acd08e938366bb0b7",
+      "outputSHA256": "ad952fbb7afa216b243daaa51d0df8bdc6e7392738b37c87adeb039a1a2f1495"
+    },
+    "assets/appendix_c_examples/ex06_gpt56_terra.webp": {
+      "source": "figures/appendix_c_examples/ex06_gpt56_terra.png",
+      "sourceSHA256": "fd43c31a0966732f93e75a9aca4e5e98fc8fed7671864bacbcbf3346d52727eb",
+      "outputSHA256": "2b28825db003871ea05af001aa726722a1e0b67c244ce5a28df794a9745ee124"
+    },
+    "assets/appendix_c_examples/ex06_gpt6_astra.webp": {
+      "source": "figures/appendix_c_examples/ex06_gpt6_astra.png",
+      "sourceSHA256": "d5c7622e14fe686097b55afc761e895fae99a2a19f96eae7e9c91266221f5cb1",
+      "outputSHA256": "0be6fbcf16b606165d12c5d6585ad7e4dbaf67c7ef4b34e1d2944f8028b41d5e"
+    },
+    "assets/appendix_c_examples/ex06_gpt6_luna.webp": {
+      "source": "figures/appendix_c_examples/ex06_gpt6_luna.png",
+      "sourceSHA256": "e69c17491e1927b086d16cb803cf9dbfeb0885700368f3dbf47170cad436d342",
+      "outputSHA256": "18af5e8309c6187eb49737b1877751e9ce4e20036d7212d96c6f4b5f24e0b5ac"
+    },
+    "assets/appendix_c_examples/ex06_gpt6_sol.webp": {
+      "source": "figures/appendix_c_examples/ex06_gpt6_sol.png",
+      "sourceSHA256": "3b1865152f3b7533d2aba5d8c0066d100e9e9381bdbecf757c2c940e4b4bab5f",
+      "outputSHA256": "750e39cb305416d03ef5965677d6c57075261036a0ac43e69dfa9446accf5840"
+    },
+    "assets/appendix_c_examples/ex06_ref.webp": {
+      "source": "figures/appendix_c_examples/ex06_ref.png",
+      "sourceSHA256": "38a9709fb9d6658c0eee1b815ab81fcae9c11c5aaa13acfeb56e389a39f6cd8c",
+      "outputSHA256": "3de2f08caaa28d337a817b1b453a2fd1e0d238272b2a5b8b35a5fd146e0ec548"
+    },
+    "assets/plugin_examples/copy_room_l3_base.webp": {
+      "source": "figures/plugin_examples/copy_room_l3_base.png",
+      "sourceSHA256": "1ad4ba1af8c25ee0c72146250a3ee786770df050248a326644a913b69c407d98",
+      "outputSHA256": "da3971c5e3a22758b9940129991894532aab736bf5f720c1f34b634c19d6a59d"
+    },
+    "assets/plugin_examples/copy_room_l3_plugin.webp": {
+      "source": "figures/plugin_examples/copy_room_l3_plugin.png",
+      "sourceSHA256": "94872af5ada1a45a36683d17c42670e7ff89bbd0cc7a4634a6fe72fdeccc4ffd",
+      "outputSHA256": "29d1b949dfaee3c31ebe494980eb86dd1b03fda42e1b80e673ccb31615dedb7b"
+    },
+    "assets/plugin_examples/copy_room_l3_reference.webp": {
+      "source": "figures/plugin_examples/copy_room_l3_reference.png",
+      "sourceSHA256": "e44198053a5f70ac0d3fe7c96818872826fc4162d972cf573e7fea514acdc7df",
+      "outputSHA256": "59da73e11ea0db31441fa091a750ac49f4c99bfd1cc7f46eae1396e0aefa9d4a"
+    },
+    "assets/plugin_examples/reception_l2_base.webp": {
+      "source": "figures/plugin_examples/reception_l2_base.png",
+      "sourceSHA256": "b70dcd9a05037858658f4f12df59b1bc8c62620e24f77e21188c3ea98341a1df",
+      "outputSHA256": "0a92c34a6915f84b6ad0314d5f47e44c52e6b470732d8d7c27efe00f489bbf67"
+    },
+    "assets/plugin_examples/reception_l2_plugin.webp": {
+      "source": "figures/plugin_examples/reception_l2_plugin.png",
+      "sourceSHA256": "f49c6d6b325c42e780a9272b2ee47b7ff6110c8d7253d8e67c600edd850dbe23",
+      "outputSHA256": "a7fccfea59d48b8952ef1114386e5aae11a2e8a7384c26cf7334849d15d2ebf9"
+    },
+    "assets/plugin_examples/reception_l2_reference.webp": {
+      "source": "figures/plugin_examples/reception_l2_reference.png",
+      "sourceSHA256": "435cfbb3dd2b8953dc1d041430b20172b9163b6b84bb831ef10b540a3b8a0e48",
+      "outputSHA256": "7a0d02bdcec1c6901c49534b1e76f38f88f189a2e6005441e257798baf836086"
+    },
+    "assets/image_main_graph.webp": {
+      "source": "figures/image_main_graph.pdf",
+      "sourceSHA256": "470c516179721a319a9a8f2a06e48dc14d9e3d96011bdcd5f7cd9cfe9ab7d291",
+      "outputSHA256": "66438423a8b61597e73fff32199c621d08513492f92d112067fe403816bb7bae"
+    },
+    "assets/image_LEGO_plugin.webp": {
+      "source": "figures/image_LEGO_plugin.pdf",
+      "sourceSHA256": "2a38b0f280b17863e6886f50d667c861c6df22deaf723ff1bec6df4a158c67d4",
+      "outputSHA256": "273eed665a84cc8b48fa007fa7b98f6d08c60647c4492c69caf1e842930151d2"
+    },
+    "assets/image_trajectory.webp": {
+      "source": "figures/image_trajectory.pdf",
+      "sourceSHA256": "2e5954de63b5723f90b4b38ad41113252d09d9744aec119d721f828d178ec582",
+      "outputSHA256": "b034d62cde849a892dd29d224aab9845b1c25f03b13cbcd9bfbdb049bf4af6ea"
+    },
+    "assets/image_lego_plugin_model_comparison.webp": {
+      "source": "figures/image_lego_plugin_model_comparison.pdf",
+      "sourceSHA256": "4886abcdce36be436ee6dec7abee5a93dc25fda921dd17fdc99c546d738e4a9e",
+      "outputSHA256": "8f71be57f9c2cb536d569e09c06167e33b137fd77414a94b52245a8a30d537f9"
+    },
+    "assets/benchmark-scenes.webp": {
+      "source": "figures/image_dataset_scene_overview.jpg",
+      "sourceSHA256": "5c36ca28585d1e540dab10204fb041778910f9cea149baabee09222e61c811d2",
+      "outputSHA256": "b06775abbef352c6d76c51462af4566ef8e8dc8fe47455c54517da49b5f4bda3"
+    },
+    "assets/results.json": {
+      "source": "tables/table_LEGO-Bench_agent_and_harness.tex",
+      "sourceSHA256": "a6691302e613875c5beda9e98cdc03f57b2c77226692407f42961b6b222bf3f5",
+      "outputSHA256": "21711d863f9c2b0e0455a7f1b358d0ff19befc03a9c33f45f5ee3b8ec20476a7"
+    },
+    "assets/image_workflow.webp": {
+      "source": "figures/image_workflow.pdf",
+      "sourceSHA256": "009f8de1d262d566ecad42ebfa42eeceb180f7318fa114c64de36834f75d67b1",
+      "outputSHA256": "d1fec6c5d8f3182157ccb7b3fd00a561583c862f0df40547dd63e7fe37b5655a"
+    },
+    "assets/image_data_engine.webp": {
+      "source": "figures/image_data_engine.pdf",
+      "sourceSHA256": "086ca637e397f4a1915b1d940deea257bc83487115b29bef774453d73eb29482",
+      "outputSHA256": "d492fdb8d59e2eb55ee328f5f61b938a02001b186b21dd8a11df7de1a73c23b7"
+    },
+    "assets/image_reasoning_efforts.webp": {
+      "source": "figures/image_reasoning_efforts.pdf",
+      "sourceSHA256": "ce5b426748937e74a48ed501b8f705ec52ee43617743ae5d86abda44385475a0",
+      "outputSHA256": "ee0e598bb694c21d9b3fa22e3c6492369bdbea6007cc18e92ed08d18216701b8"
+    },
+    "assets/image_trajectory.png": {
+      "source": "figures/image_trajectory.pdf",
+      "sourceSHA256": "2e5954de63b5723f90b4b38ad41113252d09d9744aec119d721f828d178ec582",
+      "outputSHA256": "1265f1940dc04f6bb4a21a977ef4bd29a24d39dba65a3bed9027aa450dbd9478"
+    }
+  },
+  "paperPDF": {
+    "source": "Compiled from the paper repository at paperCommit",
+    "sha256": "85eafd97d37f9de862d43feb05d6291e66361567acfc029c080dbcee04241dcf"
+  }
+}

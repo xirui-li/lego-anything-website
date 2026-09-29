@@ -1,0 +1,17 @@
+{
+  "library": "Three.js",
+  "version": "0.183.2",
+  "source": "https://github.com/mrdoob/three.js/tree/r183",
+  "files": [
+    {
+      "file": "three.module.min.js",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r183/build/three.module.min.js",
+      "sha256": "0a61c95f14e0fa015b3083475c73424f360e5f6f5b74c282b50fdbc2f4c228fc"
+    },
+    {
+      "file": "three.core.min.js",
+      "url": "https://raw.githubusercontent.com/mrdoob/three.js/r183/build/three.core.min.js",
+      "sha256": "0a9c2f0672c7b8d993ba7639e71919db181ca50c9dff99c78476d3e19057ca9c"
+    }
+  ]
+}

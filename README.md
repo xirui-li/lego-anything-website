@@ -20,6 +20,8 @@ reading column. Motion follows scrolling and respects reduced-motion preferences
 - Paper figures open at full size. The trajectory figure is a lossless PNG
   exported directly from the manuscript PDF.
 - Citation includes the paper’s BibTeX and a copy button.
+- Explorer presents all six appendix examples, each with six model outputs, and
+  a recorded Metric viewer for Havana rum shop street and Office open-plan.
 - Fonts, Three.js, figures, and the paper PDF are included in the repository.
 
 The decorative landmarks are the Eiffel Tower, Sydney Opera House, Leaning Tower
@@ -37,6 +39,7 @@ unavailable; mobile does not download the 3D renderer.
 | `app.js` | Navigation, findings, examples, and citation |
 | `architecture.js` | Scroll-driven 3D rendering |
 | `architecture-model.js` | Procedural landmark geometry |
+| `explorer.html`, `explorer.css`, `explorer.js` | Appendix examples and recorded metrics |
 | `assets/` | Paper, images, fonts, data, and renderer |
 | `tools/` | Asset export and browser verification |
 
@@ -66,11 +69,67 @@ website deployment to verify:
 ```bash
 python3 tools/check_site.py --url "$SITE_URL"
 python3 tools/check_architecture.py --url "$SITE_URL"
+python3 tools/check_explorer.py --url "$SITE_URL"
 ```
 
 Reports and screenshots are written to `test-results/`, which is excluded from
 version control. Checks cover responsive sections, navigation, dialogs, paper
 assets, citation copying, WebGL rendering, animation, and static fallbacks.
+
+## Explorer data
+
+Explorer is fully static. Browsers load bundled images and JSON; rotating sampled
+point clouds only changes the display. There is no evaluation API, backend,
+model call, upload, or live metric computation.
+
+Examples reuse the manuscript's six appendix cases and six model columns.
+Both metric cases use GPT-6-astra, run 01. Their evaluator rerenders match the
+appendix PNGs exactly. Geometry uses the existing research project's
+`LEGO-Bench/metric_explorer/build_real_trial_demo.py` export, with the canonical
+no-scale evaluation overlay. The visible-scene F1 is a companion diagnostic;
+the headline reconstruction score is the mean of per-object F1 scores.
+
+`assets/explorer/ex01/` and `ex05/` each contain:
+
+- `metrics.json`: recorded scores, sampled point clouds, per-object tolerance
+  flags, metric definitions, and source checksums.
+- `reference.png` and `render.png`: lossless images at evaluation resolution.
+- `error.png`: inverted maximum RGB-channel error (darker means more error).
+- `matches.png`: the precomputed RGB tolerance mask (blue means all channels
+  differ by at most 30).
+
+The metric reference is resized from the evaluator's original image, rather than
+from the appendix thumbnail. `tools/export_explorer.py` verifies the source
+checksums, exact appendix render, pixel-hit score, reconstruction score,
+object-macro aggregation, and overall score before packaging the assets.
+
+For reproduction, first use the research project's exporter with the matching
+trial, task, and verifier overlay. Then create a private JSON build manifest:
+
+```json
+{
+  "cases": [{
+    "id": "ex01",
+    "name": "Havana rum shop street",
+    "geometry": "build/ex01/geometry.json",
+    "evaluation": "evaluation/ex01/reevaluation.json",
+    "appearance_report": "evaluation/ex01/rendered-visual-similarity-report.json",
+    "reference": "dataset/ex01/environment/reference.png",
+    "render": "evaluation/ex01/rendered-visual-similarity/native.png",
+    "appendix_render": "paper/figures/appendix_c_examples/ex01_gpt6_astra.png"
+  }]
+}
+```
+
+Paths in this build input resolve from the working directory. Add an equivalent
+entry for `ex05`, then package with Pillow:
+
+```bash
+python3 tools/export_explorer.py --manifest "$EXPLORER_MANIFEST"
+```
+
+The private manifest is not published. Public metadata uses an explicit field
+allowlist and includes checksums, task identifiers, and trial identifiers.
 
 ## Hosting and credits
 

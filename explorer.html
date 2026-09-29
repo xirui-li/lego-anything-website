@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" class="explorer-document">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Explore six LEGO-Bench reconstruction examples and inspect recorded geometry and appearance metrics.">
+  <link rel="canonical" href="https://xirui-li.github.io/lego-anything-website/explorer.html">
+  <title>Explorer · LEGO-Anything</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="explorer.css">
+  <script src="explorer.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav-wrap container" aria-label="Main navigation">
+      <a class="wordmark" href="./" aria-label="LEGO-Anything home">
+        <svg class="brand-mark" viewBox="0 0 36 38" aria-hidden="true"><path d="M18 2 33 10.5v17L18 36 3 27.5v-17Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m3 10.5 15 8.6 15-8.6M18 19v17M10.5 6.3 25.5 15v17M25.5 6.3 10.5 15v17" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>
+        LEGO<span>-Anything</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span></button>
+      <div class="nav-links" id="nav-links">
+        <a href="./#overview">Overview</a>
+        <a href="./#workflow">LEGO-Anything</a>
+        <a href="./#benchmark">LEGO-Bench</a>
+        <a href="./#plugin">LEGO-Plugin</a>
+        <a href="./#world">LEGO-World</a>
+        <a href="./#citation">Citation</a>
+        <a href="explorer.html" aria-current="page">Explorer</a>
+        <a class="nav-paper" href="assets/paper.pdf" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+  </header>
+
+  <aside class="case-rail" aria-label="Select a scene">
+    <div class="case-rail-inner">
+      <p class="eyebrow">LEGO-Bench · Appendix examples</p>
+      <div class="case-list" id="case-list"></div>
+      <p class="rail-note" id="rail-note">Six scenes, six coding agents.</p>
+    </div>
+  </aside>
+
+  <main id="main" class="explorer-main">
+    <header class="explorer-heading">
+      <p class="eyebrow">From image to editable world</p>
+      <h1>Explorer</h1>
+      <p>Compare the reconstructions. Look inside the evaluation.</p>
+    </header>
+    <div class="explorer-tabs" role="tablist" aria-label="Explorer view">
+      <button id="examples-tab" role="tab" aria-selected="true" aria-controls="examples-panel" data-tab="examples">Examples <span>06</span></button>
+      <button id="metrics-tab" role="tab" aria-selected="false" aria-controls="metrics-panel" data-tab="metrics" tabindex="-1">Metric viewer <span>02</span></button>
+    </div>
+    <div class="case-heading">
+      <h2 id="case-title" aria-live="polite">Havana rum shop street</h2>
+      <p id="case-meta">Outdoor · Easy · Run 01</p>
+    </div>
+
+    <section id="examples-panel" role="tabpanel" aria-labelledby="examples-tab">
+      <div class="model-picker" id="model-picker" role="group" aria-label="Reconstruction model"></div>
+      <div class="example-pair">
+        <figure>
+          <button class="image-zoom" type="button" aria-label="Enlarge reference image"><img id="example-reference" src="assets/appendix_c_examples/ex01_ref.webp" width="512" height="288" alt="Havana rum shop street reference"><span aria-hidden="true">↗</span></button>
+          <figcaption>Reference image</figcaption>
+        </figure>
+        <figure>
+          <button class="image-zoom" type="button" aria-label="Enlarge reconstruction"><img id="example-render" src="assets/appendix_c_examples/ex01_gpt6_astra.webp" width="512" height="288" alt="GPT-6-astra reconstruction of Havana rum shop street"><span aria-hidden="true">↗</span></button>
+          <figcaption id="example-model">GPT-6-astra</figcaption>
+        </figure>
+      </div>
+      <p class="explorer-caption">Final evaluator rerenders from the six qualitative examples in the appendix. All results are from run 01.</p>
+      <div class="example-footer">
+        <p>One reference. Six different reconstructions.</p>
+        <button class="text-link" id="inspect-metrics" type="button">Inspect GPT-6-astra metrics <span aria-hidden="true">↗</span></button>
+      </div>
+    </section>
+
+    <section id="metrics-panel" role="tabpanel" aria-labelledby="metrics-tab" hidden>
+      <p class="metric-model">GPT-6-astra <span>Recorded evaluation · Run 01</span></p>
+      <p class="load-status" id="metric-status" role="status"></p>
+      <button class="button" id="metric-retry" type="button" hidden>Try loading again</button>
+      <div id="metric-content" hidden>
+        <dl class="score-strip" aria-label="Recorded scores, in percent">
+          <div><dt>Validity <span>V</span></dt><dd id="score-validity"></dd></div>
+          <div><dt>Reconstruction <span>R</span></dt><dd id="score-reconstruction"></dd></div>
+          <div><dt>Appearance <span>A</span></dt><dd id="score-appearance"></dd></div>
+          <div><dt>Overall</dt><dd id="score-overall"></dd></div>
+        </dl>
+        <div class="metric-switch" role="tablist" aria-label="Metric detail">
+          <button id="geometry-tab" role="tab" aria-selected="true" aria-controls="geometry-panel" data-detail="geometry">Geometry</button>
+          <button id="appearance-tab" role="tab" aria-selected="false" aria-controls="appearance-panel" data-detail="appearance" tabindex="-1">Appearance</button>
+        </div>
+
+        <section id="geometry-panel" role="tabpanel" aria-labelledby="geometry-tab">
+          <div class="geometry-toolbar">
+            <label for="object-select">Surface <select id="object-select"><option value="all">Whole visible scene</option></select></label>
+            <div class="view-actions">
+              <button type="button" id="zoom-out" aria-label="Zoom out">−</button>
+              <button type="button" id="zoom-in" aria-label="Zoom in">+</button>
+              <button class="text-link" type="button" id="reset-view">Reset ↺</button>
+            </div>
+          </div>
+          <div class="point-stage">
+            <canvas id="point-viewer" tabindex="0" role="img" aria-label="Interactive geometry point clouds. Drag or use arrow keys to rotate; plus and minus zoom; zero resets the view." aria-describedby="point-help">Use the object selector and metric table below to inspect recorded surface scores.</canvas>
+            <span class="point-stage-label" id="point-label">Visible surfaces</span>
+          </div>
+          <div class="point-controls">
+            <label><input id="show-target" type="checkbox" checked><span class="dot target"></span>Reference</label>
+            <label><input id="show-prediction" type="checkbox" checked><span class="dot prediction"></span>Reconstruction</label>
+            <label id="matches-control" hidden><input id="show-matches" type="checkbox">Show tolerance matches</label>
+          </div>
+          <div class="match-legend" id="match-legend" hidden><span><i class="dot target"></i>Within tolerance</span><span><i class="dot prediction"></i>Outside tolerance</span></div>
+          <p class="viewer-help" id="point-help">Drag to rotate · Click, then scroll to zoom · Arrow keys to rotate · + / − to zoom</p>
+          <dl class="object-scores" id="object-scores"></dl>
+          <p class="explorer-caption">R is the equal-weight mean of object F1 scores, using a tolerance of 5% of reference depth. No alignment or rescaling. Display points are sampled; scores use all evaluated points.</p>
+        </section>
+
+        <section id="appearance-panel" role="tabpanel" aria-labelledby="appearance-tab" hidden>
+          <div class="appearance-picker" role="group" aria-label="Appearance visualization">
+            <button type="button" data-appearance="render" aria-pressed="true">Reconstruction</button>
+            <button type="button" data-appearance="error" aria-pressed="false">RGB error</button>
+            <button type="button" data-appearance="matches" aria-pressed="false">Tolerance mask</button>
+          </div>
+          <div class="example-pair">
+            <figure>
+              <button class="image-zoom" type="button" aria-label="Enlarge metric reference"><img id="metric-reference" width="512" height="288" alt="Reference at evaluation resolution"><span aria-hidden="true">↗</span></button>
+              <figcaption>Reference · Evaluation resolution</figcaption>
+            </figure>
+            <figure>
+              <button class="image-zoom" type="button" aria-label="Enlarge appearance visualization"><img id="metric-appearance" width="512" height="288" alt="Evaluator reconstruction"><span aria-hidden="true">↗</span></button>
+              <figcaption id="appearance-caption">Evaluator reconstruction</figcaption>
+            </figure>
+          </div>
+          <p class="appearance-key" id="appearance-key"></p>
+          <p class="explorer-caption">A is the percentage of pixels whose red, green, and blue differences are all ≤ 30 on the 0–255 scale. These lossless images show the exact evaluation pixels.</p>
+        </section>
+        <footer class="metric-footer">
+          <p>Overall = (R + A) / 2; invalid artifacts score zero.</p>
+          <a class="text-link" id="download-metrics" download>Download recorded data ↓</a>
+        </footer>
+      </div>
+    </section>
+    <noscript><p>This explorer needs JavaScript for scene switching. The <a href="assets/paper.pdf">paper PDF</a> contains all six examples and the evaluation protocol.</p></noscript>
+  </main>
+  <dialog class="explorer-lightbox" id="image-dialog" aria-label="Expanded image">
+    <button class="lightbox-close" type="button" aria-label="Close expanded image">×</button>
+    <figure><img id="lightbox-image" alt=""><figcaption id="lightbox-caption"></figcaption></figure>
+  </dialog>
+</body>
+</html>

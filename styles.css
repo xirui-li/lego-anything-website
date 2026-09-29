@@ -42,7 +42,6 @@ h1{font-family:var(--serif);font-size:40px;font-weight:400;line-height:1.2;lette
 sup{font-size:8px;line-height:0;position:relative;vertical-align:super;margin-left:2px;color:var(--muted)}
 .affiliations{font-size:12px;color:#626660;margin-top:14px;line-height:1.9}.affiliations>span{display:block}
 .author-note{font-size:10px;color:var(--muted);margin-top:5px}
-.website-disclaimer{max-width:680px;margin:10px auto 0;line-height:1.65}
 .resource-links{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;margin-top:24px}
 .button{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:8px 16px;font-size:12px;font-weight:400;line-height:1.5;border:1px solid #c7cbc2;border-radius:5px;background:#fff;transition:border-color .15s,background .15s}
 .button:hover{border-color:#7d8477;background:#fafbf8}.button svg{height:15px;width:15px;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
@@ -130,9 +129,11 @@ dialog::backdrop{background:#222b2077;backdrop-filter:blur(3px)}
 .figure-dialog img{width:100%;height:auto;max-height:75svh;object-fit:contain;margin:auto}.figure-dialog figcaption{font-size:12px;text-align:center;color:var(--muted);line-height:1.7;margin-top:17px}
 .citation-heading{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:20px}.citation-heading .button{flex-shrink:0;font-size:11px;min-height:35px;padding:7px 12px}
 .citation-code{margin:0;padding:22px 24px;background:#fafbf8;border:1px solid var(--line);border-radius:3px;font:11px/1.8 var(--mono);color:#5e6a51;overflow:auto}.citation-code code{font:inherit}.copy-status{font-size:11px;min-height:23px;margin-top:6px;color:#5a6d47}
+#citation{padding-block:64px}
 #citation .citation-heading{margin-bottom:0}
 #citation .citation-code{white-space:pre-wrap;overflow-wrap:anywhere;background:#fafafa;color:#555}
 #citation .copy-status{margin:0;color:var(--muted)}
+.website-disclaimer{position:absolute;left:40px;right:40px;bottom:20px;max-width:900px;margin-inline:auto;text-align:center;font-size:10px;line-height:1.65;color:var(--muted)}
 /* Explorer follows the same reading column; its interactive content opens on demand. */
 .explorer-entries{display:grid;gap:30px;margin-top:10px}
 .explorer-entries article{display:grid;gap:12px;padding-top:22px;border-top:1px solid var(--line)}
@@ -230,6 +231,7 @@ dialog::backdrop{background:#222b2077;backdrop-filter:blur(3px)}
   .results-table th,.results-table td{padding:12px 9px}.results-table .harness{display:none}.results-table tbody th{font-size:10px}.results-table .std{font-size:8px}
   .results-footer{gap:12px}.results-footer>p,.text-button{font-size:10px}.results-footer>p{max-width:170px}.metric-definitions>div{grid-template-columns:1fr;gap:3px}.metric-definitions{font-size:12px}
   .citation-heading{gap:14px}.citation-heading .button{font-size:10px;padding-inline:9px}.citation-code{font-size:10px;padding:16px 12px}
+  .website-disclaimer{left:20px;right:20px;bottom:16px;font-size:9px}
   .figure-dialog{padding:42px 10px 16px}.figure-dialog figcaption{font-size:11px}
   .content-dialog.findings-dialog{width:calc(100% - 24px);height:calc(100svh - 40px);max-height:calc(100svh - 40px);padding:44px 16px 14px}
   .findings-dialog h2{font-size:23px}

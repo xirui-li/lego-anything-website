@@ -91,7 +91,7 @@ function initBenchmark() {
       cell.colSpan = 5;
       cell.textContent = "The results table could not load. ";
       const link = document.createElement("a");
-      link.href = "assets/paper.pdf";
+      link.href = "https://arxiv.org/abs/2609.36380";
       link.textContent = "View the full results in the paper.";
       cell.append(link);
       row.append(cell);

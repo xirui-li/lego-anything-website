@@ -147,7 +147,9 @@ def main():
         page.wait_for_function("document.querySelector('#copy-status').textContent.includes('copied')")
         copied = page.evaluate('navigator.clipboard.readText()')
         check(copied == page.locator('#bibtex').inner_text()
-              and '@misc{li2026legoanything' in copied and 'Dong, Mingwen' in copied,
+              and '@misc{li2026legoanythingcodingagents3d,' in copied and 'Mingwen Dong' in copied
+              and 'eprint = {2609.36380}' in copied and 'archivePrefix = {arXiv}' in copied
+              and 'primaryClass = {cs.CV}' in copied and 'url = {https://arxiv.org/abs/2609.36380}' in copied,
               'Citation copies the correct paper and authors')
         check(page.locator('[href="#citation"][data-section-link]').get_attribute('aria-current') == 'location',
               'Citation navigation highlights its screen')

@@ -4,6 +4,8 @@ Project website for **LEGO-Anything: Coding Agents for 3D Scene Reconstruction**
 
 Website: <https://xirui-li.github.io/lego-anything-website/>
 
+Paper: <https://arxiv.org/abs/2609.36380>
+
 A static paper website built with HTML, CSS, JavaScript, and Three.js. It includes
 Overview, the agent workflow, LEGO-Bench, LEGO-Plugin, LEGO-World, Explorer, and Citation.
 
@@ -19,7 +21,8 @@ reading column. Motion follows scrolling and respects reduced-motion preferences
   separate dialog with Reception and Copy room comparisons.
 - Paper figures open at full size. The trajectory figure is a lossless PNG
   exported directly from the manuscript PDF.
-- Citation includes the paper’s BibTeX and a copy button.
+- Paper links point to arXiv:2609.36380. Citation includes the arXiv BibTeX
+  (`li2026legoanythingcodingagents3d`) and a copy button.
 - Explorer occupies one paper screen with a gray Taj Mahal in the left third.
   Two short descriptions link to Examples and Metric viewer in a dialog. The
   viewer is loaded only when opened; closing it restores the reading position.
